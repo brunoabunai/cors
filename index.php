@@ -28,6 +28,7 @@
     ?>
   </head>
   <body>
+	<!--im here-->
     <noscript>
       <h1>Java Script desativado - Isso pode efetuar em mal desemprenho do site</h1>
     </noscript>
