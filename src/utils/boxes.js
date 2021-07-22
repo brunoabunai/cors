@@ -41,7 +41,7 @@ function constructorBox(op) {
                 `
                 <div id='box'>
                     <a class="btn-account opacity-button" href="oi.html"> minha conta </a>
-                    <a class="btn-leave opacity-button" href=""> sair </a>
+                    <a class="btn-leave opacity-button" onclick="logOff()" href=""> sair </a>
                 </div>
             `;
             break;
