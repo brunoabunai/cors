@@ -7,6 +7,7 @@
     <!-- <link rel="stylesheet" href="./src/styles/global.css"> -->
     <style>
       <?php include './src/styles/global.css'; ?>
+      <?php include './src/styles/classes.css'; ?>
       <?php include './src/styles/boxes.css'; ?>
     </style>
 
