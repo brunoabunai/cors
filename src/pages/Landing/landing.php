@@ -36,8 +36,8 @@
     </div>
 
     <div class="main">
-        <a class="btn-begin opacty-button" href="">Começar Agora</a>
-        <a class="anc-admin opacty-button" onclick="logedOrNoLoged()" href="">admin <small>></small></a>
+        <a class="btn-begin opacty-button" href="#">Começar Agora</a>
+        <a class="anc-admin opacty-button" onclick="logedOrNoLoged()" href="./index.php?p=login">admin <small>></small></a>
     </div>
 
     <div id="redirect">
