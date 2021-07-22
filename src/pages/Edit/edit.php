@@ -19,7 +19,7 @@
         </svg>
     </button>
     <div class="portable-page">
-        <a class="anc-back" href="./../portable/portable.html">
+        <a class="anc-back" href="./index.php?p=menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 16V13L22 13V11L6 11L6 8L2 12L6 16Z" fill="#343434"></path>
             </svg>

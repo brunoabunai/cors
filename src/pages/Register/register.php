@@ -49,7 +49,7 @@
 
         <div class="main">
 
-          <form name="form_register" action="../TCC/src/components/register.php" method="POST">
+          <form name="form_register" action="./src/components/register.php" method="POST">
             <input type="text" name="reg_name" placeholder="Usuário" />
             <input type="password" name="reg_password" placeholder="Senha" />
             <input type="submit" class="btn-register opacty-button" value="Concluir">                

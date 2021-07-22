@@ -41,7 +41,7 @@
         </div>
 
         <div class="main">
-            <form name='form_login' action="../TCC/src/components/login.php" method="POST">
+            <form name='form_login' action="./src/components/login.php" method="POST">
                 <input name="log_name" type="text" placeholder="Usuário">
                 <input name="log_password" type="password" placeholder="Senha">
                 <input type="submit" id="btn" class="btn-begin opacty-button" value="Entrar Na Sua Conta">
