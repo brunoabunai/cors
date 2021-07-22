@@ -7,6 +7,7 @@
     <!-- <link rel="stylesheet" href="./src/styles/global.css"> -->
     <style>
       <?php include './src/styles/global.css'; ?>
+      <?php include './src/styles/boxes.css'; ?>
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +62,7 @@
     <!-- <div id="a"></div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script> -->
+    <script src="./src/utils/boxes.js"></script>
   </body>
 
 </html>
