@@ -160,7 +160,7 @@
         }
 
         function addReadOnly(element) {
-            element.setAttribute('readonly');
+            element.setAttribute('readonly',true);
         }
 
         function resetEdition(){
