@@ -70,16 +70,36 @@ body {
     align-items: flex-start;
 }
 
-.portable-page .main .search {
+.portable-page .main .div-search{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portable-page .main .div-search #WicthUserBox span{
+    display: flex;
+    color: var(--title-animed);
+    font-weight: 300;
+    font-family: 'roboto',sans-serif;
+}
+
+.portable-page .main .div-search #WicthUserBox #WicthUser{
+    display: flex;
+    color: var(--title-animed);
+    font-weight: 300;
+}
+
+
+.portable-page .main .div-search .search {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
     cursor: pointer;
     margin-bottom: 0.3rem;
 }
 
-.portable-page .main .search span{
+.portable-page .main .div-search .search span{
     font-weight: 500;
     color: var(--title-animed);
 }

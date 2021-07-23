@@ -38,10 +38,10 @@
         </div>
 
         <div class="main">
-            <div>
+            <div class="div-search">
                 <div id="WicthUserBox">
                     <span>
-                        Usuário em Edição: <span id="WicthUser">Nenhum!</span>
+                        Admin em Edição:&nbsp;<span id="WicthUser">Nenhum!</span>
                     </span>
                 </div>
                 <div onclick="CreateBoxInit(1)" class="search">
@@ -57,7 +57,7 @@
                 <input class="user" id="user" type="text" placeholder="Usuário" readonly>
                 <input class="password" id="password" type="password" placeholder="Senha" readonly>
                 <input id="sub" type="submit" class="btn-register opacty-button" value="Concluir Edição">
-                <input id="res" type="reset" class="btn-reset opacty-button" value="Resetar">
+                <input onclick="resetEdition()" id="res" type="reset" class="btn-reset opacty-button" value="Resetar">
             </form>
 
         </div>
@@ -143,7 +143,7 @@
             return [name, password, inputUser, inputPassword];
         }
 
-        function changeBG(element, background) {
+        function changeBackground(element, background) {
             element.style.backgroundColor = background;
         }
 
@@ -156,7 +156,26 @@
         }
 
         function removeReadOnly(element) {
-            element.removeAttribute('readonly')
+            element.removeAttribute('readonly');
+        }
+
+        function addReadOnly(element) {
+            element.setAttribute('readonly');
+        }
+
+        function resetEdition(){
+            if(userSearched.founded){
+                const [inputUser, inputPassword] = 
+                [localizeID('user'), localizeID('password')];
+                
+                changeBackground(inputUser, "#fbfbfb");
+                changeBackground(inputPassword, "#fbfbfb");
+                addReadOnly(inputUser);
+                addReadOnly(inputPassword);
+
+                changeUserState("Nenhum!","",false);
+                updateUserSpan();
+            }
         }
     </script>
 
