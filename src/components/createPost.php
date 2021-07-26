@@ -1,6 +1,10 @@
 <?php
   echo 'hello';
-  $a = $_POST['action'];
 
-  echo $a[0];
+  $err = array();
+  $output = '';
+  $title = $_POST['pos_title'];
+  $description = $_POST['pos_description'];
+
+  
 ?>
