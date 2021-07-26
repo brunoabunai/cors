@@ -95,7 +95,7 @@
 </body>
 
 </html>
-<!-- 
+
 <script defer>
   const logOff = () => {
     $.ajax({
@@ -108,4 +108,4 @@
       }
     })
   }
-</script> -->
+</script>
