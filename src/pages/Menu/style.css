@@ -21,7 +21,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('../../TCC/public/img/background-landing.png');
+    background-image: url('./public/img/background-landing.png');
     background-repeat: no-repeat;
     background-size: 20%;
     background-position-x: right;
@@ -90,8 +90,8 @@ body{
 }
 
 .portable-page .main .ops .btn-new{
-    border: 0.1rem solid var(--primary-green);
-    color: var(--primary-green);
+    border: 0.1rem solid var(--background-purple);
+    color: var(--background-purple);
 }
 
 .portable-page .main .ops .btn-goSite{

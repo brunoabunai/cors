@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('./../background-landing.png');
+ background-image: url('./public/img/background-landing.png');
     background-repeat: no-repeat;
     background-size: 20%;
     background-position-x: right;
