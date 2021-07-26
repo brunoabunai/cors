@@ -1,1 +1,1 @@
-window.location.href="./index.php?p=unplugged.php";
+window.location.href="./index.php?p=unplugged";

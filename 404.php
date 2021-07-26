@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   </head>
   <body>
-    <h1>Potato</h1>
+    <h1>Potato page 404</h1>
     <!-- <div id="a"></div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script> -->

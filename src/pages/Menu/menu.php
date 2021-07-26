@@ -86,10 +86,8 @@
       </div>
       ';
     } else {
-      
       echo'
-        <script src="./src/utils/redirect.js"> 
-        </script>
+        <script src="./src/utils/redirect.js"></script>
       ';
     }
   ?>
@@ -97,7 +95,7 @@
 </body>
 
 </html>
-
+<!-- 
 <script defer>
   const logOff = () => {
     $.ajax({
@@ -110,4 +108,4 @@
       }
     })
   }
-</script>
+</script> -->
