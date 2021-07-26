@@ -17,7 +17,7 @@
                   <h1>&nbsp;Você não está logado!</h1>
 
             </div>
-            <span class="subtitle"> Por favor retorne a pagina de login e verifique sua conta.</span>
+            <span class="subtitle"> Por favor volte ao início e na página de login verifique sua conta.</span>
 
             <a href="./index.php?p=landing" class="btn-loginBack opacty-button">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
