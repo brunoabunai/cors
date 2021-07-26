@@ -86,10 +86,10 @@
       </div>
       ';
     } else {
-      echo '
-      <h1>Você não está logado seu animal</h1>
-
-      <a href="./index.php?p=landing">Return</a>
+      
+      echo'
+        <script src="./src/utils/redirect.js"> 
+        </script>
       ';
     }
   ?>
