@@ -1,3 +1,7 @@
+<?php
+  // include_once './src/components/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>

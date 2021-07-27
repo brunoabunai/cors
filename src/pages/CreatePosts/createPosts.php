@@ -11,10 +11,10 @@
   </head>
   <body>
     <form action="./src/components/createPost.php" method="post">
-    <input type="text" class='pos_register' name="use_idFk" placeholder="Veremos..." />
+      <input type="text" class='pos_register' name="use_idFk" placeholder="Veremos..." />
       <input type="text" class='pos_register' name="pos_title" placeholder="Título do post" />
       <textarea class='pos_register' name="pos_description" cols="30" rows="10"></textarea>
-      
+      <!-- Dando erro no textarea -->
       <input type="submit" class="btn-register opacty-button" value="Concluir" />
     </form>
 
