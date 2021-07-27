@@ -43,8 +43,8 @@
     align-items: center;
     font-weight: 500;
     border: 0.1rem solid;
-    border-color: var(--null);
-    color: var(--null);
+    border-color: var(--text-color);
+    color: var(--text-color);
     border-radius:2rem;
     padding: 0.6rem;
 }
