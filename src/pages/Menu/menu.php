@@ -43,7 +43,7 @@
         
         <div class="main">
           <div class="ops">
-            <a class="btn btn-post opacty-button bgT-button" href="#">
+            <a class="btn btn-post opacty-button bgT-button" href="./index.php?p=createPosts">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 10H17V7H14V5H17V2H19V5H22V7H19V10Z" fill="#5438DC"></path>
                 <path
