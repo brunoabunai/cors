@@ -4,49 +4,50 @@
 
 screens:
 
- 1. 💠Landing
+ 1. 💠Landing:
     1. back ✅
     2. front ✅
- 2. 💠Menu
+ 2. 💠Menu:
     1. back ✅
     2. front ✅
- 3. 💠Login
+ 3. 💠Login:
     1. back ✅
     2. front ✅
- 4. 💠Edit
+ 4. 💠Edit:
     1. back ❌
     2. front ✅
- 5. 💠Unplugged
+ 5. 💠Unplugged:
     1. back ✅
     2. front ✅
- 6. 💠Page 404 .
+ 6. 💠Page 404:
     1. back ✅
     2. front ❌
- 7. 💠Login Sucess .
+ 7. 💠Login Sucess:
     1. back ✅
     2. front ❌
- 8. 💠Create Post.
+ 8. 💠Create Post:
     1. back ❌
     2. front ❌
- 9. 💠View Posts .
+ 9. 💠View Posts:
     1. back ❌
     2. front ❌
-10. 💠Home (maked for last) .
+10. 💠Home (maked for last):
     1. back ❌
     2. front ❌
-11. 💠... :home  
+    ------------
+11. 💠... home:  
      1. back ❌
      2. front ❌
-12. 💠... :home  
+12. 💠... home:  
     1. back ❌
     2. front ❌
-13. 💠... :home  
+13. 💠... home:  
     1. back ❌
     2. front ❌
-14. 💠... :home  
+14. 💠... home:  
     1. back ❌
     2. front ❌
-15. 💠... :home  
+15. 💠... home:  
     1. back ❌
     2. front ❌
 
