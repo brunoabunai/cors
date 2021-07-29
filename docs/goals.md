@@ -25,29 +25,32 @@ screens:
  7. 💠Login Sucess:
     1. back ✅
     2. front 🔘
- 8. 💠Create Post:
-    1. back ❌
+ 8. 💠Register Sucess:
+    1. back ✅
+    2. front 🔘
+ 9. 💠Create Post:
+    1. back ✅
     2. front ❌
- 9. 💠View Posts:
-    1. back ❌
-    2. front ❌
-10. 💠Home (maked for last):
+ 10. 💠View Posts:
+    3. back ❌
+    4. front ❌
+1.  💠Home (maked for last):
     1. back ❌
     2. front ❌
     ------------
-11. 💠... home:  
+2.  💠... home:  
      1. back ❌
      2. front ❌
-12. 💠... home:  
+3.  💠... home:  
     1. back ❌
     2. front ❌
-13. 💠... home:  
+4.  💠... home:  
     1. back ❌
     2. front ❌
-14. 💠... home:  
+5.  💠... home:  
     1. back ❌
     2. front ❌
-15. 💠... home:  
+6.  💠... home:  
     1. back ❌
     2. front ❌
 

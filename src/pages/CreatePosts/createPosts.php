@@ -1,5 +1,5 @@
 <?php
-
+  @session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +10,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <form action="./src/components/createPost.php" method="post">
-      <input type="text" class='pos_register' name="use_idFk" placeholder="Veremos..." />
-      <input type="text" class='pos_register' name="pos_title" placeholder="Título do post" />
-      <textarea class='pos_register' name="pos_description" cols="30" rows="10"></textarea>
-      <!-- Dando erro no textarea -->
-      <input type="submit" class="btn-register opacty-button" value="Concluir" />
-    </form>
+  <?php
+    if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+      echo '
+      <form action="./src/components/createPost.php" method="post">
+        <input type="text" class="pos_register" name="use_idFk" placeholder="Veremos..." disabled value="' . $_SESSION["logid"] . '" />
+        <input type="text" class="pos_register" name="pos_title" placeholder="Título do post" />
+        <textarea class="pos_register" name="pos_description" cols="50" rows="10"></textarea>
+        <input type="submit" class="btn-register opacty-button" value="Concluir" />
+      </form>
+      ';
+      } else {
+        echo'
+          <script src="./src/utils/redirect.js"></script>
+        ';
+      }
+    ?>
 
     <!-- <div id="result"></div> -->
 
@@ -36,9 +45,9 @@
   //     success:(html)=> {
   //       $('#result').html(html);
   //     },
-  //     error:(html)=> {
-  //       console.log('Erro - potato');
-  //     }
+      // error:function(html) {
+      //   location.href='../../404.php';
+      // }
   //   })
   // }
 </script>

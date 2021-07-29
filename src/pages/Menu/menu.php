@@ -103,8 +103,10 @@
       url: './src/components/geralCommands.php',
       data: {action:'callLogOff'},
       success:function(html) {
-        console.log(html);
         location.href='./index.php?p=landing';
+      },
+      error:function(html) {
+        location.href='../../404.php';
       }
     })
   }

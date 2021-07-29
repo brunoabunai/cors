@@ -36,15 +36,15 @@
     </div>
 
     <div class="main">
-        <a class="btn-begin opacty-button" href="#">Começar Agora</a>
-        <a class="anc-admin opacty-button" onclick="logedOrNoLoged()" href="./index.php?p=login">admin <small>></small></a>
+        <a class="btn-begin opacty-button" href>Começar Agora</a>
+        <a class="anc-admin opacty-button" onclick="logedOrNoLoged()" href>admin <small>></small></a>
     </div>
 
     <div id="redirect">
 
     </div>
 
-    <script src="../TCC/node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
 </body>
 
 </html>
@@ -59,7 +59,7 @@
         $('#redirect').html(html);
       },
       error:function(html) {
-        console.log('Erro - potato');
+        location.href='../../404.php';
       }
     })
   }

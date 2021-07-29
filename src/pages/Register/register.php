@@ -59,10 +59,8 @@
       </div>
       ';
     } else {
-      echo '
-      <h1>Você não está logado seu animal</h1>
-
-      <a href="./index.php?p=landing">Return</a>
+      echo'
+        <script src="./src/utils/redirect.js"></script>
       ';
     }
   ?>
@@ -79,8 +77,10 @@
       url: './src/components/geralCommands.php',
       data: {action:'callLogOff'},
       success:function(html) {
-        console.log(html);
         location.href='./index.php?p=landing';
+      },
+      error:function(html) {
+        location.href='../../404.php';
       }
     })
   }
