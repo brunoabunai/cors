@@ -29,15 +29,15 @@
 
   // Part 3 Saida
   if(isset($err) && count($err) > 0){
-    echo "<div class='err'>";
-      foreach($err as $val){
-        echo "$val <br>";
-      }
-    echo "</div>";
+    // echo "<div class='err'>";
+    //   foreach($err as $val){
+    //     echo "$val <br>";
+    //   }
+    // echo "</div>"; this lines make to show us the err (lol part of back)
     echo "<script>location.href='../../404.php';</script>";
     exit;
   } else {
-    $output = 'Logado com sucesso';
+    //$output = 'Logado com sucesso'; this line make to show us the err (lol part of back)
     // echo "<script>
     //         if(!localStorage.getItem('login')){
     //           localStorage.setItem('login',0); //Deslogado
@@ -50,7 +50,7 @@
   }
 
   
-  echo $output;
+  //echo $output; this line make to show us the err (lol part of back)
 
   echo "<script>location.href='../../index.php?p=menu';</script>";
 ?>
