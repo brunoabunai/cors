@@ -5,7 +5,6 @@
 
   //Define variables
   $err = array();
-  $output = '';
   $creator = $_SESSION['logid'];
   $title = $_POST['pos_title'];
   $description = $_POST['pos_description'];
@@ -17,14 +16,14 @@
   $queries = $conn->query($getValues) or die ($conn->error);
   $data = $queries->fetch_assoc();
   
-  //Compar if post já existe
+  //Compare if the post was created
   if ($data['pos_description'] == $description) {
     $err[] = "Post já criado";
     echo "<script>location.href='../../404.php';</script>";
     exit;
   }
 
-  //Part 1 Validação
+  //Part 1 validation
   if (strlen($title) == 0) {
     $err[] = "Preencha o título";
   }
@@ -34,9 +33,6 @@
   
   //Part 2 Submit to Data Base
   if (count($err) == 0) {
-    echo "<br>";
-    echo $datas;
-    echo "<br>";
     $sql_code = " INSERT INTO posts(
                     use_idFk,
                     pos_title,
@@ -53,6 +49,7 @@
                 ";
     $code = $conn->query($sql_code) or die ($conn->error);
 
+    //Part 3 Validate if the Submission to the database was a sucessful
     if ($code) {
       echo "<script>location.href='../../index.php';</script>";
       exit;
@@ -60,18 +57,11 @@
       $err = $code;
     }
 
-  } else if(isset($err) && count($err) > 0){
-    // echo "<div class='err'>";
-    //   foreach ($err as $val) {
-    //     echo "$val <br>";
-    //   }
-    // echo "</div>";
+  } else if(isset($err) && count($err) > 0){ //If there is an error
     echo "<script>location.href='../../404.php';</script>";
     exit;
-  } 
-  // else {
-  //   // $output = 'Post criado com sucesso'; this line make to show us the err (lol part of back)
-  // }
-
+  }
+  
   echo "<script>location.href='../../index.php?p=menu';</script>";
+  exit;
 ?>

@@ -27,7 +27,7 @@ screens:
     2. front 🔘
  8. 💠Register Sucess:
     1. back ✅
-    2. front 🔘
+    2. front ❌
  9. 💠Create Post:
     1. back ✅
     2. front ❌

@@ -8,6 +8,7 @@
   if($_POST['action'] == 'logedOrNoLoged'){
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
       echo "<script>location.href='./index.php?p=menu';</script>";
+      exit;
     } else {
       echo "<script>location.href='./index.php?p=login';</script>";
       exit;

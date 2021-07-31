@@ -38,18 +38,6 @@
       <h1>Java Script desativado - Isso pode efetuar em mal desemprenho do site</h1>
     </noscript>
     <?php
-      /**
-        *! Está dando erro, na importação a imagem no bg, body; 
-        *? ola
-        ** ola
-        *Todo ola
-        *@param myParam
-        include_once './src/pages/Landing/landing.php';
-      */
-
-      // include_once './src/pages/Register/register.php';
-      // include_once './src/pages/Login/login.php';
-
       clearstatcache();
       if(isset($p)){
         $page = "./src/pages/".ucfirst($p)."/".$p.".php";

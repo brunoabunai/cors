@@ -86,9 +86,7 @@
       </div>
       ';
     } else {
-      echo'
-        <script src="./src/utils/redirect.js"></script>
-      ';
+      echo'<script>location.href="./index.php?p=unplugged"</script>';
     }
   ?>
   <script src="./node_modules/jquery/dist/jquery.js"></script>

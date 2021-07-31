@@ -21,9 +21,7 @@
       </form>
       ';
       } else {
-        echo'
-          <script src="./src/utils/redirect.js"></script>
-        ';
+        echo'<script>location.href="./index.php?p=unplugged"</script>';
       }
     ?>
 

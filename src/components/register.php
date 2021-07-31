@@ -55,17 +55,10 @@
       $err = $code;
     }
   } else if(isset($err) && count($err) > 0){
-    // echo "<div class='err'>";
-    //   foreach ($err as $val) {
-    //     echo "$val <br>";
-    //   }
-    // echo "</div>";
     echo "<script>location.href='../../404.php';</script>";
     exit;
-  } 
-  // else {
-  //   // $output = 'Registrado com sucesso'; this line make to show us the err (lol part of back)
-  // }
+  }
 
   echo "<script>location.href='../../index.php?p=menu';</script>";
+  exit;
 ?>
