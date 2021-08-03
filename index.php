@@ -55,7 +55,7 @@
     <!-- <div id="a"></div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script> -->
-    <script src="./src/utils/boxes.js"></script>
+    <script src="./src/utils/boxes.js" defer></script>
   </body>
 
 </html>
