@@ -36,8 +36,12 @@ body{
 }
 
 
-button, select,input[type=submit] {
+button,select,input[type=submit] {
   cursor: pointer;
+  font-family: 'Roboto',sans-serif;
+}
+
+textarea,input{
   font-family: 'Roboto',sans-serif;
 }
 
