@@ -30,7 +30,7 @@ screens:
     2. front 🔘
  9. 💠Create Post:
     1. back ✅
-    2. front ❌
+    2. front ✅
  10. 💠View Posts:
     3. back ❌
     4. front ❌
