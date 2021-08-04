@@ -1,3 +1,18 @@
+<?php
+  $value = trim(' Batata          Numero De          Serie 3 ');
+  // while(strpos($value, "  ") != 0){
+  //   $value = str_replace("  ", " ", $value);
+  // }
+  function removeDoubleSpace($something){
+    while(strpos($something, "  ") != 0){
+      return str_replace("  ", " ", $something);
+    }
+  }
+
+  $value = removeDoubleSpace($value);
+  echo ($value);
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>

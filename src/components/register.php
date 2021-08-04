@@ -1,8 +1,8 @@
 <?php
   include_once '/connection.php';
 
-  $name = $_POST['reg_name'];
-  $password = $_POST['reg_password'];
+  $name = trim($_POST['reg_name']); //trim remove os espaço em branco das borda
+  $password = ($_POST['reg_password']);
   // $avatar = $_POST['reg_avatar'];
   $avatar = 'https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png';
   $err = array();
@@ -16,15 +16,26 @@
                       ";
   $queries = $conn->query($valuesComparedDB) or die ($conn->error);
   $data = $queries->fetch_assoc();
+  $getExistUser = $data['use_name'];
 
-  if ($data['use_name'] == $name) {
+  // Part 1 Validação
+  function removeDoubleSpace($something){
+    while(strpos($something, "  ") != 0){
+      return str_replace("  ", " ", $something);
+    }
+  }
+  $name = removeDoubleSpace($name);
+  $getExistUser = removeDoubleSpace($getExistUser);
+  // $password = removeDoubleSpace($password);
+
+  if ($getExistUser == $name) {
     $err[] = "Usuário já cadastrado";
     echo "<script>location.href='../../404.php';</script>";
     exit;
   }
 
-  // Part 1 Validação
-  if (strlen($name) == 0) {
+
+  if ((strlen($name) == 0)) {
     $err[] = "Preencha o nome.";
   }
   if (strlen($password) == 0) {
