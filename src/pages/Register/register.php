@@ -69,6 +69,16 @@
 </html>
 
 <script defer>
+  // const form = document.querySelector('form');
+
+  // if (condition) {
+  //   document.querySelector("form").addEventListener(
+  //     "click", 
+  //     (event) => {
+  //       event.preventDefault();
+  //     });
+  // }
+
   const logOff = () => {
     $.ajax({
       type: "POST",
