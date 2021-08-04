@@ -1,27 +1,27 @@
 <?php
-  @session_start();
-  // session_start([
-  //   'cookie_lifetime' => 86400,
-  //   'read_and_close'  => true,
-  // ]);
+@session_start();
+// session_start([
+//   'cookie_lifetime' => 86400,
+//   'read_and_close'  => true,
+// ]);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      <?php include 'style.css'; ?>
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    <?php include 'style.css'; ?>
+  </style>
 </head>
 
 <body>
   <?php
-    if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-      echo '
+  if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+    echo '
       <button class="bt-ops" onclick="CreateBoxInit(0)">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -84,10 +84,12 @@
           </div>
         </div>
       </div>
+
+      <input type="text" id="a"/>
       ';
-    } else {
-      echo'<script>location.href="./index.php?p=unplugged"</script>';
-    }
+  } else {
+    echo '<script>location.href="./index.php?p=unplugged"</script>';
+  }
   ?>
   <script src="./node_modules/jquery/dist/jquery.js"></script>
 </body>
@@ -99,13 +101,47 @@
     $.ajax({
       type: "POST",
       url: './src/components/geralCommands.php',
-      data: {action:'callLogOff'},
-      success:function(html) {
-        location.href='./index.php?p=landing';
+      data: {
+        action: 'callLogOff'
       },
-      error:function(html) {
-        location.href='../../404.php';
+      success: function(html) {
+        location.href = './index.php?p=landing';
+      },
+      error: function(html) {
+        location.href = '../../404.php';
       }
     })
+  }
+  const input = document.querySelector('input');
+
+  input.onkeyup = (evt) => digited(evt); //when on ekey is pressed, create it a function that pass th eevent in question
+
+  function digited(evt) { // see console.log(evt), he has a propriety called key, that is a key that the person digited
+    const inputArray = String(input.value).split("");
+
+    const haveDoubleSpace= 
+      (inputArray[inputArray.length - 1] == inputArray[inputArray.length - 2] && inputArray[inputArray.length - 1] == " ");
+      
+    const areEmpty= (inputArray.length<1);
+    const haveSpaceInBegin= (inputArray[0]==" ");
+    const haveSpaceInEnd= (inputArray[inputArray.length-1]==" ");
+
+    if (haveDoubleSpace) {
+      console.log('space')
+    }
+
+    if(areEmpty){
+      console.log('empty')
+    }
+
+    if(haveSpaceInBegin){
+      console.log('havespaceInbegin')
+    }
+
+    if(haveSpaceInEnd){
+      console.log('havespaceInEnd')
+    }
+
+    console.log(inputArray[inputArray.length-1])
   }
 </script>
