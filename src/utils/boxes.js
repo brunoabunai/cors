@@ -16,20 +16,12 @@ function removeBox(op) {
   changeStateBox(op);
 }
 
-function localizeID(item) {
-  return document.getElementById(item);
-}
-
 function changeStateBox(op) {
   globalStateBox[op] = !globalStateBox[op];
 }
 
 function conditionBox() {
   return (!globalStateBox[0] && !globalStateBox[1]);
-}
-
-function addInPage(content) {
-  document.querySelector('body').innerHTML += content;
 }
 
 function constructorBox(op) {

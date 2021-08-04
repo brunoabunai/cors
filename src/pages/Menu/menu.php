@@ -84,8 +84,6 @@
           </div>
         </div>
       </div>
-
-      <input type="text" id="a"/>
       ';
   } else {
     echo '<script>location.href="./index.php?p=unplugged"</script>';
@@ -111,44 +109,5 @@
         location.href = '../../404.php';
       }
     })
-  }
-  const input = document.querySelector('input');
-
-  input.onkeyup = (evt) => digited(evt); //when on ekey is pressed, create it a function that pass th eevent in question
-
-  function digited(evt) { // see console.log(evt), he has a propriety called key, that is a key that the person digited
-    const inputArray = toArray(input.value);
-    const [haveDoubleSpace, areEmpty, haveSpaceInBegin, haveSpaceInEnd] = getValidations();
-    makeValidations();
-
-    function getValidations() {
-      return [
-        (inputArray[inputArray.length - 1] == inputArray[inputArray.length - 2] && inputArray[inputArray.length - 1] == " "), // if doubleSpace
-        (inputArray.length < 1), // if are empty
-        (inputArray[0] == " "), // if space in begin
-        (inputArray[inputArray.length - 1] == " ") //if space in end
-      ]
-    };
-    function makeValidations() {
-      if (haveDoubleSpace) {
-        console.log('doublespace')
-      }
-
-      if (areEmpty) {
-        console.log('empty')
-      }
-
-      if (haveSpaceInBegin) {
-        console.log('havespaceInbegin')
-      }
-
-      if (haveSpaceInEnd) {
-        console.log('havespaceInEnd')
-      }
-    }
-  }
-
-  function toArray(stringItem) {
-    return String(stringItem).split("");
   }
 </script>

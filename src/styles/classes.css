@@ -17,3 +17,7 @@
 .bgT-button:hover {
     background-color: #fbfbfb;
 }
+
+.errInputValidation{
+    border: 0.1rem solid #ff0000 !important;
+}
