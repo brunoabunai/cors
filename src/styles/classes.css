@@ -19,5 +19,6 @@
 }
 
 .errInputValidation{
-    border: 0.1rem solid #ff0000 !important;
+    border: 0.1rem solid !important;
+    border-color: var(--danger) !important;
 }
