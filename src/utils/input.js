@@ -4,7 +4,7 @@ let tot= new Array(allInputs.length).fill(true);
 let totA= new Array(allTextareas.length).fill(true);
 
 allInputs.forEach( (input,indexOfInput) => {
-    input.onkeyup = () => UserDigitedIn(input,indexOfInput);
+    input.onkeyup = () => UserDigitedIn(input,indexOfInput,'input');
     input.onclick= () => {
         if(tot[indexOfInput]){
             addClass(input, "errInputValidation");
@@ -14,7 +14,7 @@ allInputs.forEach( (input,indexOfInput) => {
 })
 
 allTextareas.forEach( (textarea,indexOfInput) => {
-    textarea.onkeyup = () => UserDigitedIn(textarea,indexOfInput);
+    textarea.onkeyup = () => UserDigitedIn(textarea,indexOfInput,'textarea');
     textarea.onclick= () => {
         if(totA[indexOfInput]){
             addClass(textarea, "errInputValidation");
@@ -23,7 +23,7 @@ allTextareas.forEach( (textarea,indexOfInput) => {
     };
 })
 
-function UserDigitedIn(input,indexOfInput) {
+function UserDigitedIn(input,indexOfInput,w) {
     const exception = (input.title == "true"); // to use, have that a attribute called title in input with value false
     const inputArray = toArray(input.value);
     const [haveDoubleSpace, areEmpty, haveSpaceInBegin, haveSpaceInEnd, havePoorCharacter] = getValidations();
@@ -43,7 +43,12 @@ function UserDigitedIn(input,indexOfInput) {
     
     function makeValidations() {
         if(areEmpty){
-            totA[indexOfInput]= true;
+            if(w=='input'){
+                tot[indexOfInput]= true;
+            }else{
+                totA[indexOfInput]= true;
+
+            }
             callNullColor();
             return;
         }
