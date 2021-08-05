@@ -22,3 +22,8 @@
     border: 0.1rem solid !important;
     border-color: var(--danger) !important;
 }
+
+.sucessInputValidation{
+    border: 0.1rem solid !important;
+    border-color: var(--secondary-green) !important;
+}

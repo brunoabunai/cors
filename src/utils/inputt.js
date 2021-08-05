@@ -1,15 +1,15 @@
 const allInputs = document.querySelectorAll('input');
 const allTextareas = document.querySelectorAll('textarea');
 
-allInputs.forEach((input,index)=>{
-    input.onkeyup = () => UserDigited(input);
+allInputs.forEach(input => {
+    input.onkeyup = () => UserDigitedIn(input);
 })
 
-allTextareas.forEach((textarea,index)=>{
-    textarea.onkeyup = () => UserDigited(textarea);
+allTextareas.forEach(textarea => {
+    textarea.onkeyup = () => UserDigitedIn(textarea);
 })
 
-function UserDigited(input) {
+function UserDigitedIn(input) {
     const exception = (input.title == "true"); // to use, have that a attribute called title in input with value false
     const inputArray = toArray(input.value);
     const [haveDoubleSpace, areEmpty, haveSpaceInBegin, haveSpaceInEnd, havePoorCharacter] = getValidations();
@@ -17,51 +17,79 @@ function UserDigited(input) {
 
     function getValidations() {
         return [
-            (inputArray[inputArray.length - 1] == inputArray[inputArray.length - 2] && inputArray[inputArray.length - 1] == " "), // if doubleSpace
+            (inputArray.map(
+                (x, y) => (x == " " && x == inputArray[y - 1]) || (x == " " && x == inputArray[y + 1]))).filter(
+                    x => x == true)[0] || false,// if doubleSpace.
             (inputArray.length < 1), // if are empty
             (inputArray[0] == " "), // if space in begin
             (inputArray[inputArray.length - 1] == " "), //if space in end
             (exception) ? (inputArray.length > 0 && inputArray.length < 3) : false //if have a few characters
         ]
     };
+    
     function makeValidations() {
-        if(input.type=="password"){
-            if((areEmpty || havePoorCharacter)){
-                addErr(input);
-            }else{
-                removeErr(input);
-            }
+        if(areEmpty){
+            callNullColor();
+            return;
         }
-        
-        if(input.type=="text"){
-            if (haveDoubleSpace || areEmpty || haveSpaceInBegin || haveSpaceInEnd || havePoorCharacter) {
-                addErr(input);
-                console.log(haveDoubleSpace)
-                console.log(areEmpty)
-                console.log(haveSpaceInBegin)
-                console.log(haveSpaceInEnd)
-                console.log(havePoorCharacter)
+        if (input.type == "password") {
+            if ((havePoorCharacter)) {
+                callErrorColor();
             } else {
-                removeErr(input);
+                callSucessColor();
             }
         }
 
-        if(input.nodeName=="TEXTAREA"){
-            if (haveDoubleSpace || areEmpty || haveSpaceInBegin || haveSpaceInEnd || havePoorCharacter) {
-                addErr(input);
+        if (input.type == "text") {
+            if (haveDoubleSpace || haveSpaceInBegin || haveSpaceInEnd || havePoorCharacter) {
+                callErrorColor();
             } else {
-                removeErr(input);
+                callSucessColor();
             }
         }
-        
+
+        if (input.nodeName == "TEXTAREA") {
+            if (haveDoubleSpace || haveSpaceInBegin || haveSpaceInEnd || havePoorCharacter) {
+                callErrorColor();
+            } else {
+                callSucessColor();
+            }
+        }
     }
 
-    function addErr(element){
-        addClass(element, "errInputValidation");
+
+
+    function callErrorColor() {
+        removeClassSucessFromInput();
+        addClassErrorInInput();
     }
-    function removeErr(element){
-        removeClass(element, "errInputValidation");
+
+    function callSucessColor() {
+        addClassSucessInInput();
+        removeClassErrorFromInput(); 
     }
+
+    function callNullColor() {
+        removeClassSucessFromInput(); 
+        removeClassErrorFromInput(); 
+    }
+
+
+    function addClassErrorInInput() {
+        addClass(input, "errInputValidation");
+    }
+    function removeClassErrorFromInput() {
+        removeClass(input, "errInputValidation");
+    }
+    
+    function addClassSucessInInput() {
+        addClass(input, "sucessInputValidation");
+    }
+
+    function removeClassSucessFromInput() {
+        removeClass(input, "sucessInputValidation");
+    }
+    
 }
 
 //  <input title="false"> //to use exeption
