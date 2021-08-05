@@ -1,15 +1,29 @@
 const allInputs = document.querySelectorAll('input');
 const allTextareas = document.querySelectorAll('textarea');
+let tot= new Array(allInputs.length).fill(true);
+let totA= new Array(allTextareas.length).fill(true);
 
-allInputs.forEach(input => {
-    input.onkeyup = () => UserDigitedIn(input);
+allInputs.forEach( (input,indexOfInput) => {
+    input.onkeyup = () => UserDigitedIn(input,indexOfInput);
+    input.onclick= () => {
+        if(tot[indexOfInput]){
+            addClass(input, "errInputValidation");
+            tot[indexOfInput]= false;
+        }
+    };
 })
 
-allTextareas.forEach(textarea => {
-    textarea.onkeyup = () => UserDigitedIn(textarea);
+allTextareas.forEach( (textarea,indexOfInput) => {
+    textarea.onkeyup = () => UserDigitedIn(textarea,indexOfInput);
+    textarea.onclick= () => {
+        if(totA[indexOfInput]){
+            addClass(textarea, "errInputValidation");
+            totA[indexOfInput]= false;
+        }
+    };
 })
 
-function UserDigitedIn(input) {
+function UserDigitedIn(input,indexOfInput) {
     const exception = (input.title == "true"); // to use, have that a attribute called title in input with value false
     const inputArray = toArray(input.value);
     const [haveDoubleSpace, areEmpty, haveSpaceInBegin, haveSpaceInEnd, havePoorCharacter] = getValidations();
@@ -29,6 +43,7 @@ function UserDigitedIn(input) {
     
     function makeValidations() {
         if(areEmpty){
+            totA[indexOfInput]= true;
             callNullColor();
             return;
         }
