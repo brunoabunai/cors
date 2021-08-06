@@ -19,11 +19,9 @@
 }
 
 .errInputValidation{
-    border: 0.1rem solid !important;
-    border-color: var(--danger) !important;
+    box-shadow: 0.05rem 0.05rem 0.05rem var(--danger);
 }
 
 .sucessInputValidation{
-    border: 0.1rem solid !important;
-    border-color: var(--secondary-green) !important;
+    box-shadow: 0.05rem 0.05rem 0.05rem var(--secondary-green);
 }

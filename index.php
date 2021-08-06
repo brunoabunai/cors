@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="./src/styles/global.css"> -->
     <style>
       <?php include './src/styles/global.css'; ?>
-      <?php include './src/styles/classes.css'; ?>
+      <?php include './src/styles/classe.css'; ?>
       <?php include './src/styles/boxes.css'; ?>
     </style>
 
@@ -57,7 +57,7 @@
     <script src="node_modules/jquery/dist/jquery.js"></script> -->
     <script src="./src/utils/global.js" defer></script>
     <script src="./src/utils/boxes.js" defer></script>
-    <script src="./src/utils/input.js"></script>
+    <script src="./src/utils/inputt.js"></script>
     
   </body>
 
