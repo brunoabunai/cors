@@ -1,24 +1,33 @@
 const allInputs = document.querySelectorAll('input');
 const allTextareas = document.querySelectorAll('textarea');
-let tot= new Array(allInputs.length).fill(true);
-let totA= new Array(allTextareas.length).fill(true);
+
+let inputIsActive= new Array(allInputs.length).fill(true);
+let textareaIsActive= new Array(allTextareas.length).fill(true);
+
 
 allInputs.forEach( (input,indexOfInput) => {
     input.onkeyup = () => UserDigitedIn(input,indexOfInput);
+    input.addEventListener('blur', function() {
+        UserDigitedIn(input,indexOfInput);
+    });
     input.onclick= () => {
-        if(tot[indexOfInput]){
-            addClass(input, "errInputValidation");
-            tot[indexOfInput]= false;
+        if(input.type=="submit"){
+            return;
         }
+        if(inputIsActive[indexOfInput]){
+            addClass(input, "errInputValidation");
+            inputIsActive[indexOfInput]= false;
+        }  
     };
 })
+
 
 allTextareas.forEach( (textarea,indexOfInput) => {
     textarea.onkeyup = () => UserDigitedIn(textarea,indexOfInput);
     textarea.onclick= () => {
-        if(totA[indexOfInput]){
+        if(textareaIsActive[indexOfInput]){
             addClass(textarea, "errInputValidation");
-            totA[indexOfInput]= false;
+            textareaIsActive[indexOfInput]= false;
         }
     };
 })
@@ -44,9 +53,9 @@ function UserDigitedIn(input,indexOfInput) {
     function makeValidations() {
         if(areEmpty){
             if(input.nodeName == "TEXTAREA"){
-                totA[indexOfInput]= true;
+                textareaIsActive[indexOfInput]= true;
             }else{
-                tot[indexOfInput]= true;
+                inputIsActive[indexOfInput]= true;
             }
             callNullColor();
             return;
