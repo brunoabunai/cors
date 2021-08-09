@@ -85,32 +85,26 @@ body{
 
 
 .portable-page .main .ops .btn-post{
-    border: 0.1rem solid var(--background-purple);
-    color: var(--background-purple);
+    border: 0.1rem solid var(--text-color);
+    color: var(--text-color);
 }
 
 .portable-page .main .ops .btn-new{
-    border: 0.1rem solid var(--background-purple);
-    color: var(--background-purple);
+    border: 0.1rem solid var(--text-color);
+    color: var(--text-color);
 }
 
 .portable-page .main .ops .btn-goSite{
-    border: 0.1rem solid var(--background-purple);
-    color: var(--background-purple);
+    border: 0.1rem solid var(--text-color);
+    color: var(--text-color);
 }
 
 #box{
     position: absolute;
     top: 5.8rem;
     right: 3.1rem;
-    display: flex;
-    flex-direction: column;
-    
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.26);
-    padding: 1rem;
-    transition-property: color;
+
+
     
 }
 
