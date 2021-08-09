@@ -17,7 +17,7 @@
 <body>
   <?php
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-      echo '
+      echo /*html*/' 
         <div class="portable-page">
           <a class="anc-back" href="./index.php?p=menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,127 +66,12 @@
           </div>
         </div>
 
-        <!-- <script>
-          // var userSearched = {
-          //   name: "Nenhum!",
-          //   password: "",
-          //   founded: false
-          // };
-
-          // function SearchInit(op) {
-          //   const admins = [{
-          //       name: "Carlos",
-          //       password: 123
-          //     },
-          //     {
-          //       name: "Bruno",
-          //       password: 445
-          //     }
-          //   ]
-
-          //   makeSearch(admins);
-
-          //   if (userSearched.founded) {
-          //     whenMakedSearch(document.querySelector("#boxInput"), op);
-          //   } else {
-          //     whenNotMakedSearch(document.querySelector("#boxInput"), op);
-          //   }
-          // }
-
-          // function whenMakedSearch(input, op) {
-          //   input.remove();
-          //   changeStateBox(op);
-          //   updateUserSpan(userSearched);
-          //   updateInput(userSearched);
-          // }
-
-          // function updateUserSpan() {
-          //   const span = document.querySelector("#WicthUser");
-          //   span.innerHTML = `${userSearched.name}...`;
-          // }
-
-          // function whenNotMakedSearch(input, op) {
-          //   alert("Administrador não encontrado");
-          // }
-
-          // function makeSearch(admins) {
-          //   const search = localizeID("search").value;
-
-          //   for (let i = 0; i < admins.length; i++) {
-          //     if (admins[i].name == search) {
-          //       changeUserState(admins[i].name, admins[i].password, true);
-          //       break;
-          //     }
-          //   }
-          // }
-
-          // function changeUserState(name, password, founded) {
-          //   userSearched.name = name;
-          //   userSearched.password = password;
-          //   userSearched.founded = founded;
-          // }
-
-          // function updateInput() {
-          //   const [name, password, inputUser, inputPassword] = getValuesToUpdate(userSearched);
-          //   changeValue(inputUser, name);
-          //   changeValue(inputPassword, password);
-          //   changeBackground(inputUser, "#fff");
-          //   changeBackground(inputPassword, "#fff");
-          //   removeReadOnly(inputUser);
-          //   removeReadOnly(inputPassword);
-          // }
-
-          // function getValuesToUpdate(user) {
-          //   const {
-          //     name,
-          //     password,
-          //     founded
-          //   } = user;
-          //   const [inputUser, inputPassword] = [localizeID("user"), localizeID("password")];
-          //   return [name, password, inputUser, inputPassword];
-          // }
-
-          // function changeBackground(element, background) {
-          //   element.style.backgroundColor = background;
-          // }
-
-          // function changeValue(element, value) {
-          //   element.value = value;
-          // }
-
-          // function changeColor(element, color) {
-          //   element.style.Color = color;
-          // }
-
-          // function removeReadOnly(element) {
-          //   element.removeAttribute("readonly");
-          // }
-
-          // function addReadOnly(element) {
-          //   element.setAttribute("readonly", true);
-          // }
-
-          // function resetEdition() {
-          //   if (userSearched.founded) {
-          //     const [inputUser, inputPassword] = [localizeID("user"), localizeID("password")];
-
-          //     changeBackground(inputUser, "#fbfbfb");
-          //     changeBackground(inputPassword, "#fbfbfb");
-          //     addReadOnly(inputUser);
-          //     addReadOnly(inputPassword);
-
-          //     changeUserState("Nenhum!", "", false);
-          //     updateUserSpan();
-          //   }
-          // }
-        </script> -->
-
         <div class="searchResult">
 
         </div>
       ';
     } else {
-      echo'<script>location.href="./index.php?p=unplugged"</script>';
+      echo /*html*/'<script>location.href="./index.php?p=unplugged"</script>';
     }
   ?>
 
