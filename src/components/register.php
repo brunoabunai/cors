@@ -29,10 +29,9 @@
 
   if ($data['use_name'] == $name) {
     $err[] = "Usuário já cadastrado";
-    // echo "<script>location.href='../../404.php';</script>";
-    // exit;
+    echo "<script>location.href='../../404.php';</script>";
+    exit;
   }
-
 
   if ((strlen($name) == 0)) {
     $err[] = "Preencha o nome.";
@@ -65,13 +64,13 @@
       $err = $code;
     }
   } else if(isset($err) && count($err) > 0){
-    // echo "<script>location.href='../../404.php';</script>";
-    // exit;
+    echo "<script>location.href='../../404.php';</script>";
+    exit;
     foreach ($err as $key) {
       echo $key;
     }
   }
 
-  // echo "<script>location.href='../../index.php?p=menu';</script>";
-  // exit;
+  echo "<script>location.href='../../index.php?p=menu';</script>";
+  exit;
 ?>
