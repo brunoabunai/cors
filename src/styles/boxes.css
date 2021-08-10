@@ -1,28 +1,58 @@
 #box {
   position: absolute;
-  top: 5.8rem;
-  right: 3.1rem;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.26);
   padding: 1rem;
-  transition-property: color;
+  animation: coming-up 500ms;
 }
 
-#box a:hover {
-  color: var(--text-color);
+#box .options {
+  color: #c6c6c6;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 0.001rem solid #c6c6c694;
 }
+
+#box svg path{
+  transition-property: fill;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes coming-up {
+  0% {
+      transform: translateY(10px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+
+#box a{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #999;
+}
+
+
+#box a svg{
+  margin-right: 0.5rem;
+}
+
 
 #box .btn-account {
-  color: var(--title-animed);
-  margin-bottom: 1rem;
+  margin-top: 0.4rem;
 }
 
 #box .btn-leave {
-  color: var(--danger);
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 #boxInput {

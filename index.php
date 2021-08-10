@@ -56,7 +56,7 @@
 
     <script src="node_modules/jquery/dist/jquery.js"></script> -->
     <script src="./src/utils/global.js" defer></script>
-    <script src="./src/utils/boxes.js" defer></script>
+    <script src="./src/utils/boxe.js" defer></script>
     <script src="./src/utils/inputt.js"></script>
     
   </body>

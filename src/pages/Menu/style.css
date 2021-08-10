@@ -100,26 +100,8 @@ body{
 }
 
 #box{
-    position: absolute;
     top: 5.8rem;
-    right: 3.1rem;
-
-
-    
-}
-
-#box a:hover{
-    color: var(--text-color);
-}
-
-#box .btn-account {
-    color:var(--title-animed);
-    margin-bottom: 1rem;
-}
-
-#box .btn-leave {
-    color:var(--danger);
-    margin-top: 1rem;
+    right: 3.1rem; 
 }
 
 @media (min-width: 1080px) {
@@ -139,7 +121,6 @@ body{
     }
 
     #box{
-        position: absolute;
         top: 6rem;
         right: 5rem;
     }
