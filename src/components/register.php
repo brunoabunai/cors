@@ -16,7 +16,6 @@
                       ";
   $queries = $conn->query($valuesComparedDB) or die ($conn->error);
   $data = $queries->fetch_assoc();
-  $getExistUser = $data['use_name'];
 
   // Part 1 Validação
   function removeDoubleSpace($something){
@@ -24,14 +23,14 @@
       return str_replace("  ", " ", $something);
     }
   }
-  $name = removeDoubleSpace($name);
-  $getExistUser = removeDoubleSpace($getExistUser);
+
+  (strpos($name, "  ") != 0) ? $name = removeDoubleSpace($name) : $name = $name;
   // $password = removeDoubleSpace($password);
 
-  if ($getExistUser == $name) {
+  if ($data['use_name'] == $name) {
     $err[] = "Usuário já cadastrado";
-    echo "<script>location.href='../../404.php';</script>";
-    exit;
+    // echo "<script>location.href='../../404.php';</script>";
+    // exit;
   }
 
 
@@ -66,10 +65,13 @@
       $err = $code;
     }
   } else if(isset($err) && count($err) > 0){
-    echo "<script>location.href='../../404.php';</script>";
-    exit;
+    // echo "<script>location.href='../../404.php';</script>";
+    // exit;
+    foreach ($err as $key) {
+      echo $key;
+    }
   }
 
-  echo "<script>location.href='../../index.php?p=menu';</script>";
-  exit;
+  // echo "<script>location.href='../../index.php?p=menu';</script>";
+  // exit;
 ?>
