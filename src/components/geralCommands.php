@@ -14,4 +14,8 @@
       exit;
     }
   }
+
+  if($_POST['action'] == 'selectedSearch'){ //editSearch
+    $_SESSION['selectedSearch'] = $_POST['value'];
+  }
 ?>

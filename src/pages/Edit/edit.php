@@ -1,5 +1,18 @@
 <?php
+  // include_once ('./src/components/edit.php');
+  // @session_start();
+
+  include_once ('./src/components/connection.php');
   @session_start();
+  $valuesComparedDB = " SELECT * 
+                        FROM users 
+                        WHERE use_idPk = '".$_SESSION['selectedSearch']."'
+                      ";
+
+  $queries = $conn->query($valuesComparedDB) or die ($conn->error);
+  $data = $queries->fetch_assoc();
+
+  $userSelected = (count($data) != 0) ? $data['use_name'] : 'Nenhum!';
 ?>
 
 <!DOCTYPE html>
@@ -17,77 +30,71 @@
 <body>
   <?php
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-      echo /*html*/' 
-        <div class="portable-page">
-          <a class="anc-back" href="./index.php?p=menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 16V13L22 13V11L6 11L6 8L2 12L6 16Z" fill="#343434"></path>
+      echo /*html*/"
+        <div class='portable-page'>
+          <a class='anc-back' href='./index.php?p=menu'>
+            <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path d='M6 16V13L22 13V11L6 11L6 8L2 12L6 16Z' fill='#343434'></path>
             </svg>
           </a>
 
-          <div class="landing">
-            <h2 class="title">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.8971 21.968C12.366 21.9696 11.8565 21.7586 11.4821 21.382L3.64805 13.547C3.23464 13.1348 3.02266 12.5621 3.06805 11.98L3.56805 5.41401C3.63935 4.4264 4.42625 3.64163 5.41405 3.57301L11.9801 3.07301C12.0311 3.06201 12.0831 3.06201 12.1341 3.06201C12.6639 3.06337 13.1718 3.27399 13.5471 3.64801L21.3821 11.482C21.7573 11.8571 21.9681 12.3659 21.9681 12.8965C21.9681 13.4271 21.7573 13.9359 21.3821 14.311L14.3111 21.382C13.9369 21.7583 13.4277 21.9693 12.8971 21.968ZM12.1331 5.06201L5.56205 5.56201L5.06205 12.133L12.8971 19.968L19.9671 12.898L12.1331 5.06201ZM8.65405 10.654C7.69989 10.6542 6.87847 9.98037 6.69213 9.04458C6.5058 8.10879 7.00646 7.17169 7.88792 6.80639C8.76939 6.44109 9.78615 6.74933 10.3164 7.54259C10.8466 8.33586 10.7426 9.39322 10.0681 10.068C9.69388 10.4443 9.18473 10.6553 8.65405 10.654Z" fill="#1D263B"></path>
+          <div class='landing'>
+            <h2 class='title'>
+              <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M12.8971 21.968C12.366 21.9696 11.8565 21.7586 11.4821 21.382L3.64805 13.547C3.23464 13.1348 3.02266 12.5621 3.06805 11.98L3.56805 5.41401C3.63935 4.4264 4.42625 3.64163 5.41405 3.57301L11.9801 3.07301C12.0311 3.06201 12.0831 3.06201 12.1341 3.06201C12.6639 3.06337 13.1718 3.27399 13.5471 3.64801L21.3821 11.482C21.7573 11.8571 21.9681 12.3659 21.9681 12.8965C21.9681 13.4271 21.7573 13.9359 21.3821 14.311L14.3111 21.382C13.9369 21.7583 13.4277 21.9693 12.8971 21.968ZM12.1331 5.06201L5.56205 5.56201L5.06205 12.133L12.8971 19.968L19.9671 12.898L12.1331 5.06201ZM8.65405 10.654C7.69989 10.6542 6.87847 9.98037 6.69213 9.04458C6.5058 8.10879 7.00646 7.17169 7.88792 6.80639C8.76939 6.44109 9.78615 6.74933 10.3164 7.54259C10.8466 8.33586 10.7426 9.39322 10.0681 10.068C9.69388 10.4443 9.18473 10.6553 8.65405 10.654Z' fill='#1D263B'></path>
               </svg>
 
               Editar Admin
             </h2>
 
-            <span class="subtitle">
+            <span class='subtitle'>
               Pesquise o Admin e edite seus dados
             </span>
           </div>
 
-          <div class="main">
-            <div class="div-search">
-              <div id="WicthUserBox">
+          <div class='main'>
+            <div class='div-search'>
+              <div id='WicthUserBox'>
                 <span>
-                  Admin em Edição:&nbsp;<span id="WicthUser">Nenhum!</span>
+                  Admin em Edição:&nbsp;<span id='WicthUser'>". $userSelected . /*html*/"</span>
                 </span>
               </div>
-              <div onclick="CreateBoxInit(1)" class="search">
-                <span class="opacty-button">Pesquisar Admin</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.577 19L12.81 14.234C10.6539 15.6564 7.77106 15.2164 6.13737 13.2156C4.50369 11.2147 4.64914 8.30214 6.47405 6.474C8.30186 4.6484 11.2148 4.50231 13.216 6.13589C15.2173 7.76946 15.6576 10.6526 14.235 12.809L19 17.577L17.577 19ZM10.034 7.014C8.5933 7.01309 7.35253 8.03002 7.07053 9.44291C6.78854 10.8558 7.54386 12.2711 8.87457 12.8234C10.2053 13.3756 11.7408 12.9109 12.542 11.7135C13.3433 10.5161 13.1871 8.91947 12.169 7.9C11.6043 7.33135 10.8355 7.0123 10.034 7.014Z" fill="#8D80AD"></path>
+              <div onclick='CreateBoxInit(1)' class='search'>
+                <span class='opacty-button'>Pesquisar Admin</span>
+                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path d='M17.577 19L12.81 14.234C10.6539 15.6564 7.77106 15.2164 6.13737 13.2156C4.50369 11.2147 4.64914 8.30214 6.47405 6.474C8.30186 4.6484 11.2148 4.50231 13.216 6.13589C15.2173 7.76946 15.6576 10.6526 14.235 12.809L19 17.577L17.577 19ZM10.034 7.014C8.5933 7.01309 7.35253 8.03002 7.07053 9.44291C6.78854 10.8558 7.54386 12.2711 8.87457 12.8234C10.2053 13.3756 11.7408 12.9109 12.542 11.7135C13.3433 10.5161 13.1871 8.91947 12.169 7.9C11.6043 7.33135 10.8355 7.0123 10.034 7.014Z' fill='#8D80AD'></path>
                 </svg>
               </div>
             </div>
 
-            <form action="./../portable/portable.html">
-              <input class="user" id="user" type="text" placeholder="Usuário" readonly>
-              <input class="password" id="password" type="password" placeholder="Senha" readonly>
-              <input id="sub" type="submit" class="btn-register opacty-button" value="Concluir Edição">
-              <input onclick="resetEdition()" id="res" type="reset" class="btn-reset opacty-button" value="Resetar">
+            <form action='./../portable/portable.html'>
+              <input class='user' id='user' type='text' placeholder='Usuário' value='".$data['use_name']."' readonly>
+              <input class='password' id='password' type='password' placeholder='Senha' readonly>
+              <input id='sub' type='submit' class='btn-register opacty-button' value='Concluir Edição'>
+              <input onclick='resetEdition()' id='res' type='reset' class='btn-reset opacty-button' value='Resetar'>
             </form>
-
-            <input id="searchInput" type="text" />
 
           </div>
         </div>
-
-        <div class="searchResult">
-
-        </div>
-      ';
+      ";
     } else {
-      echo /*html*/'<script>location.href="./index.php?p=unplugged"</script>';
+      echo /*html*/"<script>location.href='./index.php?p=unplugged'</script>";
     }
   ?>
 
-  <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <!-- <script src='./node_modules/jquery/dist/jquery.js'></script> -->
 </body>
 
 </html>
 
-<script>
+<!-- <script>
   // $(document).ready(function(){
 
   // loadDatas(1);
 
   function loadDatas(page, query = '') {
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: './src/components/search.php',
       data: {
         actualPage: page,
@@ -115,4 +122,4 @@
     console.log(`hello potato: ${id}`);
   }
   // });
-</script>
+</script> -->
