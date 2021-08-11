@@ -16,7 +16,7 @@
 
 <body>
     <?php
-    $nameAdmin = "Carlos";
+    $nameAdmin = $_SESSION['logAdminName'];
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
     ?>
         <div class="portable-page">

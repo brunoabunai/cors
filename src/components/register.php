@@ -1,5 +1,6 @@
 <?php
   include_once '/connection.php';
+  @session_start();
 
   $name = trim($_POST['reg_name']); //trim remove os espaço em branco das borda
   $password = ($_POST['reg_password']);
@@ -29,6 +30,7 @@
 
   if ($data['use_name'] == $name) {
     $err[] = "Usuário já cadastrado";
+    $_SESSION['errors'] = $err;
     echo "<script>location.href='../../404.php';</script>";
     exit;
   }
@@ -58,17 +60,19 @@
     $code = $conn->query($sql_code) or die ($conn->error);
 
     if ($code) {
-      echo "<script>location.href='../../index.php';</script>";
+      $_SESSION['logAdminName'] = $name;
+      echo "<script>location.href='../../index.php?p=registerSuccess';</script>";
       exit;
     } else {
       $err = $code;
     }
   } else if(isset($err) && count($err) > 0){
+    // foreach ($err as $key) {
+    //   echo $key;
+    // }
+    $_SESSION['errors'] = $err;
     echo "<script>location.href='../../404.php';</script>";
     exit;
-    foreach ($err as $key) {
-      echo $key;
-    }
   }
 
   echo "<script>location.href='../../index.php?p=menu';</script>";
