@@ -37,3 +37,7 @@ function removeReadOnly(element) {
 function addReadOnly(element) {
     element.setAttribute("readonly", true);
 }
+
+function changeColorOfElementClicked(elementCLicked, color) {
+    elementCLicked.style.fill = color;
+}

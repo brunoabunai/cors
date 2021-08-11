@@ -1,32 +1,67 @@
 var globalStateBox = [false, false];
+const html = document.querySelector('html');
+html.onmouseup = (evt) => {
+  globalStateBox.forEach((boxClicked, indexBox) => {
+    const [svgClicked, boxDivClicked] = getValidationsToMouseClick();
+    if (boxClicked && !svgClicked && !boxDivClicked) {
+      makeProcessToRemoveBox(indexBox);
+    }
+  })
+
+  function getValidationsToMouseClick() {
+    return [
+      evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
+      evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
+    ]
+  }
+}
 
 function CreateBoxInit(op) {
-  return (conditionBox()) ? makeBox(op) : removeBox(op)
+  return (conditionBox()) ? makeProcessToCreateBox(op) : makeProcessToRemoveBox(op)
 }
 
-function makeBox(op) {
-  document.querySelector('.bt-ops > svg > path').style.fill='#c6c6c6';
+function makeProcessToCreateBox(op) {
+  const elementClicked = getElementCLicked(op);
+  changeColorOfElementClicked(elementClicked, '#c6c6c6');
+  createBox(op);
+  changeStateBox(op);
+}
+
+function makeProcessToRemoveBox(op) {
+  const elementClicked = getElementCLicked(op);
+  changeColorOfElementClicked(elementClicked, 'var(--text-color)');
+  removeBox(op);
+  changeStateBox(op);
+}
+
+function createBox(op) {
   const box = constructorBox(op);
   addInPage(box);
-  changeStateBox(op);
 }
-
 function removeBox(op) {
-  document.querySelector('.bt-ops > svg > path').style.fill='var(--text-color)';
   const box = [localizeID('box'), localizeID('boxInput')];
-  box[op].classList.add('leaving');
-  
-  box[op].remove();
-  changeStateBox(op);
-  
+  let endAnimationOfBox = box[op].animate([
+    // keyframes
+    { opacity: 1 },
+    { opacity: 0 }
+  ], {
+    // timing options
+    duration: 200,
+    iterations: 1
+  });
+  endAnimationOfBox.onfinish = () => {
+    box[op].remove();
+  }
 }
 
 function changeStateBox(op) {
   globalStateBox[op] = !globalStateBox[op];
 }
-
 function conditionBox() {
   return (!globalStateBox[0] && !globalStateBox[1]);
+}
+function getElementCLicked(op) {
+  return ([document.querySelector('.bt-ops > svg > path')][op]);
 }
 
 function constructorBox(op) {
@@ -39,6 +74,9 @@ function constructorBox(op) {
                 <div id='box'>
                   <div class="options">
                     <span>Opções:</span>
+                    
+                    <svg class="close" onclick="makeProcessToRemoveBox(0)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+
                   </div>
                     <a class="btn-account opacty-button" href="oi.html"> 
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

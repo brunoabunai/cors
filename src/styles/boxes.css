@@ -18,6 +18,20 @@
   border-bottom: 0.001rem solid #c6c6c694;
 }
 
+#box .options span {
+  color: #999;
+}
+
+#box .close{
+  position:absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0.8rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+  fill: #999;
+}
+
 #box svg path{
   transition-property: fill;
   transition-duration: 200ms;
