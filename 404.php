@@ -1,3 +1,7 @@
+<?php
+@session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -26,6 +30,14 @@
       </svg>
 
       Voltar Para o Início</a>
+  </div>
+
+  <div class="errorsLog">
+    <?php
+      foreach ($_SESSION['errors'] as $key) {
+        echo $key;
+      }
+    ?>
   </div>
 
   <!-- <div id="a"></div>
