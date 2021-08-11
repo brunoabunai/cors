@@ -2,19 +2,34 @@ var globalStateBox = [false, false];
 
 
 const html = document.querySelector('html');
-html.onmouseup = (evt) => {
-  
-  globalStateBox.forEach((boxDidClicked, indexBox) => {
-    const [svgClicked, boxDivClicked,[aClicked,aDidCLicked]] = getValidationsToMouseClick();
-    if (boxDidClicked && !svgClicked && !boxDivClicked) {
-      if(aDidCLicked){
-        aClicked.onclick= (event)=> event.preventDefault();
-      }else{
-        aClicked.onclick= (event)=> event.preventDefault(); //this
-      }
-      makeProcessToRemoveBox(indexBox);
-    }
+
+function mapAllTagsA(){
+  const AllTagsA= document.querySelectorAll('a');
+  AllTagsA.forEach(tagA=>{
+    tagA.onclick= (event) => (someBoxIsOpen()) ? processWhenIsOpen(event) : null;
   })
+}
+mapAllTagsA();
+
+function someBoxIsOpen(){
+  return globalStateBox[globalStateBox.indexOf(true)] || false;
+};
+
+function getBoxOpen(){
+  return globalStateBox.indexOf(true);
+}
+
+function processWhenIsOpen(event){
+  event.preventDefault();
+  makeProcessToRemoveBox(getBoxOpen());
+}
+
+html.onmouseup = (evt) => {
+  const [svgClicked, boxDivClicked,[aClicked,aDidCLicked]] = getValidationsToMouseClick();
+  const haveBoxOpen= getBoxOpen()!= -1;
+  if(haveBoxOpen && !svgClicked && !boxDivClicked && !aDidCLicked){
+    makeProcessToRemoveBox(getBoxOpen());
+  }
 
   function getValidationsToMouseClick() {
     return [
@@ -40,12 +55,14 @@ function makeProcessToRemoveBox(op) {
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, 'var(--text-color)');
   removeBox(op);
+  mapAllTagsA();
   changeStateBox(op);
 }
 
 function createBox(op) {
   const box = constructorBox(op);
   addInPage(box);
+  mapAllTagsA();
 }
 function removeBox(op) {
   const box = [localizeID('box'), localizeID('boxInput')];
