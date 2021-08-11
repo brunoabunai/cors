@@ -1,9 +1,19 @@
 var globalStateBox = [false, false];
+document.querySelectorAll('a').forEach(tag=>{
+  tag.onclick= (event) =>{
+    return event;
+  }
+});
+
 const html = document.querySelector('html');
 html.onmouseup = (evt) => {
   globalStateBox.forEach((boxClicked, indexBox) => {
-    const [svgClicked, boxDivClicked] = getValidationsToMouseClick();
+    const [svgClicked, boxDivClicked,[aClicked,aDidCLicked]] = getValidationsToMouseClick();
     if (boxClicked && !svgClicked && !boxDivClicked) {
+      if(aDidCLicked){
+        const eventOfTagA= aClicked.onclick();
+        eventOfTagA.preventDefault();
+      }
       makeProcessToRemoveBox(indexBox);
     }
   })
@@ -12,6 +22,7 @@ html.onmouseup = (evt) => {
     return [
       evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
       evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
+      [evt.path.filter(itemCLicked => itemCLicked.nodeName == 'a')[0],evt.path.filter(itemCLicked => itemCLicked.nodeName == 'a').length > 0],
     ]
   }
 }
