@@ -27,7 +27,7 @@ function processWhenIsOpen(event){
 html.onmouseup = (evt) => {
   const [svgClicked, boxDivClicked,[aClicked,aDidCLicked]] = getValidationsToMouseClick();
   const haveBoxOpen= getBoxOpen()!= -1;
-  if(haveBoxOpen && !svgClicked && !boxDivClicked && !aDidCLicked){
+  if(haveBoxOpen && (!svgClicked || !boxDivClicked || !aDidCLicked)){
     makeProcessToRemoveBox(getBoxOpen());
   }
 
