@@ -6,7 +6,7 @@
   @session_start();
   $valuesComparedDB = " SELECT * 
                         FROM users 
-                        WHERE use_idPk = '".$_SESSION['selectedSearch']."'
+                        WHERE use_idPk = '".(isset($_SESSION['selectedSearch'])) ? $_SESSION['selectedSearch'] : $_SESSION['registerUserId']."'
                       ";
 
   $queries = $conn->query($valuesComparedDB) or die ($conn->error);

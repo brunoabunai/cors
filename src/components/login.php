@@ -4,8 +4,7 @@
   @session_start();
   // Part 1 Validação
   $err = array();
-  $output;
-
+  
   if (strlen($_POST['log_name']) == 0) {
     $err[] = "Preencha o nome.";
   }
@@ -24,11 +23,12 @@
   $data = $queries->fetch_assoc();
 
   if (count($data) == 0) {
-    $err[] = "Not found";
+    $err[] = "User Not found";
   }
 
   // Part 3 Saida
   if(isset($err) && count($err) > 0){
+    $_SESSION['errors'] = $err;
     echo "<script>location.href='../../404.php';</script>";
     exit;
   } else {

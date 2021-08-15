@@ -1,5 +1,6 @@
 <?php
   include_once './connection.php';
+  // include_once '../utils/getValuesFromDataBase.php';
   @session_start();
   date_default_timezone_set('America/Sao_Paulo');
 
@@ -12,13 +13,17 @@
   $datas = date("Y-m-d H:i:s");
   
   //Get values from data base
-  $getValues = " SELECT pos_description FROM posts ";
+  $getValues =  " SELECT pos_description 
+                  FROM posts 
+                  WHERE pos_description = '" . $description . "'
+                ";
   $queries = $conn->query($getValues) or die ($conn->error);
   $data = $queries->fetch_assoc();
   
   //Compare if the post was created
   if ($data['pos_description'] == $description) {
     $err[] = "Post já criado";
+    $_SESSION['errors'] = $err;
     echo "<script>location.href='../../404.php';</script>";
     exit;
   }

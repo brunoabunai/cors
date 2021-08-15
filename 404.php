@@ -36,6 +36,7 @@
     <?php
       foreach ($_SESSION['errors'] as $key) {
         echo $key;
+        echo "<br>";
       }
     ?>
   </div>

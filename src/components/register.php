@@ -58,18 +58,24 @@
                   );
                 ";
     $code = $conn->query($sql_code) or die ($conn->error);
+    $data = $queries->fetch_assoc();
 
     if ($code) {
-      $_SESSION['logAdminName'] = $name;
+      $valuesComparedDB = " SELECT * 
+                            FROM users 
+                            WHERE use_name = '" . $name . "' 
+                            AND use_password='" . md5(md5($password)) . "'
+                          ";
+      $queries = $conn->query($valuesComparedDB) or die ($conn->error);
+      $data = $queries->fetch_assoc();
+
+      $_SESSION['registerUserId'] = $data['use_idPk'];
       echo "<script>location.href='../../index.php?p=registerSuccess';</script>";
       exit;
     } else {
       $err = $code;
     }
   } else if(isset($err) && count($err) > 0){
-    // foreach ($err as $key) {
-    //   echo $key;
-    // }
     $_SESSION['errors'] = $err;
     echo "<script>location.href='../../404.php';</script>";
     exit;
