@@ -3,31 +3,47 @@ var globalStateBox = [false, false];
 
 const html = document.querySelector('html');
 
-function mapAllTagsA(){
-  const AllTagsA= document.querySelectorAll('a');
-  AllTagsA.forEach(tagA=>{
-    tagA.onclick= (event) => (someBoxIsOpen()) ? processWhenIsOpen(event) : null;
+function mapAllTagsA() {
+  const AllTagsA = document.querySelectorAll('a');
+  AllTagsA.forEach(tagA => {
+    if (tagA.onclick) {
+      const eventBeforeOnclick = tagA.onclick;
+      tagA.onclick = (event) => {
+        if (someBoxIsOpen() && haveSomeBoxActiver()) {
+          processWhenIsOpen(event)
+        } else {
+          eventBeforeOnclick();
+        }
+      };
+    }
+
+
   })
 }
 mapAllTagsA();
 
-function someBoxIsOpen(){
+function haveSomeBoxActiver() {
+  const boxActivers = document.querySelectorAll('.box-activer');
+  return (boxActivers.length > 0) ? true : false;
+}
+
+function someBoxIsOpen() {
   return globalStateBox[globalStateBox.indexOf(true)] || false;
 };
 
-function getBoxOpen(){
+function getBoxOpen() {
   return globalStateBox.indexOf(true);
 }
 
-function processWhenIsOpen(event){
+function processWhenIsOpen(event) {
   event.preventDefault();
   makeProcessToRemoveBox(getBoxOpen());
 }
 
 html.onmouseup = (evt) => {
-  const [svgClicked, boxDivClicked,[aClicked,aDidCLicked]] = getValidationsToMouseClick();
-  const haveBoxOpen= getBoxOpen()!= -1;
-  if(haveBoxOpen && (!svgClicked || !boxDivClicked || !aDidCLicked)){
+  const [svgClicked, boxDivClicked, [aClicked, aDidCLicked]] = getValidationsToMouseClick();
+  const haveBoxOpen = getBoxOpen() != -1;
+  if (haveBoxOpen && (!svgClicked || !boxDivClicked || !aDidCLicked)) {
     makeProcessToRemoveBox(getBoxOpen());
   }
 
@@ -35,28 +51,41 @@ html.onmouseup = (evt) => {
     return [
       evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
       evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
-      [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0],evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
+      [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0], evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
     ]
   }
 }
 
 function CreateBoxInit(op) {
-  return (conditionBox()) ? makeProcessToCreateBox(op) : makeProcessToRemoveBox(op)
+  return (!someBoxIsOpen()) ? makeProcessToCreateBox(op) : makeProcessToRemoveBox(getBoxOpen())
 }
 
 function makeProcessToCreateBox(op) {
+  console.log('-------------------')
+  console.log('begin at CREATE')
+  console.log(someBoxIsOpen())
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, '#c6c6c6');
   createBox(op);
   changeStateBox(op);
+  console.log('fisni of to CREATE');
+  console.log(someBoxIsOpen())
+
 }
 
 function makeProcessToRemoveBox(op) {
+  console.log('---------------------')
+  console.log('begin at remove')
+  console.log(someBoxIsOpen())
+
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, 'var(--text-color)');
   removeBox(op);
   mapAllTagsA();
   changeStateBox(op);
+  console.log('finish of to remove')
+  console.log(someBoxIsOpen())
+
 }
 
 function createBox(op) {
