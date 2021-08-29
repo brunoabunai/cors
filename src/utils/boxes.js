@@ -1,5 +1,5 @@
 var globalStateBox = [false, false];
-
+console.log(console.memory)
 
 const html = document.querySelector('html');
 
@@ -41,17 +41,16 @@ function processWhenIsOpen(event) {
 }
 
 html.onmouseup = (evt) => {
-  const [svgClicked, boxDivClicked, [aClicked, aDidCLicked]] = getValidationsToMouseClick();
+  const [ boxActiverClicked ] = getValidationsToMouseClick();
   const haveBoxOpen = getBoxOpen() != -1;
-  if (haveBoxOpen && (!svgClicked || !boxDivClicked || !aDidCLicked)) {
+  if (haveBoxOpen &&  !boxActiverClicked ) {
     makeProcessToRemoveBox(getBoxOpen());
+    console.log('ssssssssssssssssssssssssss | '+boxActiverClicked,)
   }
 
   function getValidationsToMouseClick() {
     return [
-      evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
-      evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
-      [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0], evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
+      evt.path.filter(itemCLicked => itemCLicked.id == 'box-activer').length > 0,
     ]
   }
 }
@@ -61,37 +60,24 @@ function CreateBoxInit(op) {
 }
 
 function makeProcessToCreateBox(op) {
-  console.log('-------------------')
-  console.log('begin at CREATE')
-  console.log(someBoxIsOpen())
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, '#c6c6c6');
   createBox(op);
   changeStateBox(op);
-  console.log('fisni of to CREATE');
-  console.log(someBoxIsOpen())
-
+  mapAllTagsA();
 }
 
 function makeProcessToRemoveBox(op) {
-  console.log('---------------------')
-  console.log('begin at remove')
-  console.log(someBoxIsOpen())
-
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, 'var(--text-color)');
   removeBox(op);
-  mapAllTagsA();
   changeStateBox(op);
-  console.log('finish of to remove')
-  console.log(someBoxIsOpen())
-
+  mapAllTagsA();
 }
 
 function createBox(op) {
   const box = constructorBox(op);
   addInPage(box);
-  mapAllTagsA();
 }
 function removeBox(op) {
   const box = [localizeID('box'), localizeID('boxInput')];
