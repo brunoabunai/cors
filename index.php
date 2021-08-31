@@ -12,7 +12,7 @@
     <style>
       <?php include './src/styles/global.css'; ?>
       <?php include './src/styles/classe.css'; ?>
-      <?php include './src/styles/boxes.css'; ?>
+      <?php include './src/styles/boxe.css'; ?>
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

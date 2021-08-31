@@ -1,4 +1,4 @@
-#box {
+.boxGear {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   animation: coming-up 500ms;
 }
 
-#box .options {
+.boxGear .options {
   color: #c6c6c6;
   font-size: 1rem;
   font-weight: 500;
@@ -18,11 +18,11 @@
   border-bottom: 0.001rem solid #c6c6c694;
 }
 
-#box .options span {
+.boxGear .options span {
   color: #999;
 }
 
-#box .close{
+.boxGear .close{
   position:absolute;
   top: 0;
   right: 0;
@@ -32,7 +32,7 @@
   fill: #999;
 }
 
-#box svg path{
+.boxGear svg path{
   transition-property: fill;
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
@@ -48,7 +48,7 @@
 }
 
 
-#box a{
+.boxGear a{
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -56,20 +56,20 @@
 }
 
 
-#box a svg{
+.boxGear a svg{
   margin-right: 0.5rem;
 }
 
 
-#box .btn-account {
+.boxGear .btn-account {
   margin-top: 0.4rem;
 }
 
-#box .btn-leave {
+.boxGear .btn-leave {
   margin-top: 0.5rem;
 }
 
-#boxInput {
+.boxInput {
   position: absolute;
   top: 30%;
   right: 20%;
@@ -84,25 +84,25 @@
   border-radius: 0.5rem;
 }
 
-#boxInput h3 {
+.boxInput h3 {
   color: #fff;
   margin-bottom: 0.5rem;
   font-weight: 500;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.096);
 }
 
-#boxInput div {
+.boxInput div {
   position: relative;
 }
 
-#boxInput div svg {
+.boxInput div svg {
   position: absolute;
   top: -3rem;
   right: -9rem;
   cursor: pointer;
 }
 
-#boxInput input {
+.boxInput input {
   border: 0;
   border-radius: 0.4rem;
   width: 90%;
@@ -114,7 +114,7 @@
   color: var(--text-color);
 }
 
-#boxInput button {
+.boxInput button {
   margin-top: 0.7rem;
   border: 0;
   border-radius: 0.3rem;
@@ -132,14 +132,14 @@
 
 
 @media (min-width: 1080px) {
-  #boxInput {
+  .boxInput {
     top: 30%;
     right: 36%;
   }
 }
 
 @media (min-width: 800px) {
-  #boxInput {
+  .boxInput {
     top: 30%;
     right: 36%;
   }

@@ -32,8 +32,8 @@
   </div>
 
   <div class="main">
-    <a class="btn-begin opacty-button" href="./index.php?p=portal">Começar Agora</a>
-    <a class="anc-admin opacty-button" onclick="logedOrNoLoged()" href>admin<small>></small></a>
+    <a class="btn-begin opacty-button" href="#" onclick="logedOrNoLoged()">Começar Agora</a>
+    
   </div>
 
   <div id="redirect">

@@ -41,7 +41,7 @@ function processWhenIsOpen(event) {
 
 html.onmouseup = (evt) => {
   const [ boxActiverClicked,svgClicked, boxDivClicked, [aClicked, aDidCLicked] ] = getValidationsToMouseClick();
-  const haveBoxOpen = getBoxOpen() != -1;
+  const haveBoxOpen = getBoxOpen() != -1 || false;
   if ((haveBoxOpen && !boxActiverClicked) && (haveBoxOpen && !boxDivClicked)) {
     makeProcessToRemoveBox(getBoxOpen());
   }
@@ -71,7 +71,7 @@ function makeProcessToCreateBox(op) {
 function makeProcessToRemoveBox(op) {
   const elementClicked = getElementCLicked(op);
   changeColorOfElementClicked(elementClicked, 'var(--text-color)');
-  removeBox(op);
+  removeBox();
   changeStateBox(op);
   mapAllTagsA();
 }
@@ -80,9 +80,9 @@ function createBox(op) {
   const box = constructorBox(op);
   addInPage(box);
 }
-function removeBox(op) {
-  const box = [localizeID('box'), localizeID('boxInput')];
-  let endAnimationOfBox = box[op].animate([
+function removeBox() {
+  const box=localizeID('box');
+  let endAnimationOfBox = box.animate([
     // keyframes
     { opacity: 1 },
     { opacity: 0 }
@@ -92,7 +92,7 @@ function removeBox(op) {
     iterations: 1
   });
   endAnimationOfBox.onfinish = () => {
-    box[op].remove();
+    box.remove();
   }
 }
 
@@ -103,7 +103,14 @@ function conditionBox() {
   return (!globalStateBox[0] && !globalStateBox[1]);
 }
 function getElementCLicked(op) {
-  return ([document.querySelector('.bt-ops > svg > path')][op]);
+ 
+  return ( 
+    [
+      document.querySelector('.bt-ops'),
+      document.querySelector('.bt-input'),
+      document.querySelector('.bt-menu')
+    ][op] 
+  )
 }
 
 function constructorBox(op) {
@@ -113,7 +120,7 @@ function constructorBox(op) {
       box.name = "box of config";
       box.content =/*html*/
         `
-                <div id='box'>
+                <div id="box" class="boxGear">
                   <div class="options">
                     <span>Opções:</span>
                     
@@ -138,11 +145,11 @@ function constructorBox(op) {
       break;
     case 1:
       box.name = "box of search";
-      box.content =
+      box.content =/*html*/
         `
-                <div id='boxInput'>
+                <div id='box' class="boxInput">
                     <div>
-                        <svg class="opacty-button" onclick="removeBox(1)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="opacty-button" onclick="makeProcessToRemoveBox(1)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.59 7L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41L15.59 7Z" fill="#fff"></path>
                         </svg>
     
@@ -150,6 +157,15 @@ function constructorBox(op) {
                     <h3>Digite o Nome:</h3>
                     <input id="searchInput2" type='text'/>
                     <button class="opacty-button" onclick="SearchInit(1)"> Buscar </button>
+                </div>
+            `;
+      break;
+      case 2:
+      box.name = "box of menu options";
+      box.content =/*html*/
+        `
+                <div id='box' class="boxMenu">
+                    oiiii
                 </div>
             `;
       break;
