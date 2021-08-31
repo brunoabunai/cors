@@ -1,5 +1,4 @@
 var globalStateBox = [false, false];
-console.log(console.memory)
 
 const html = document.querySelector('html');
 
@@ -41,16 +40,18 @@ function processWhenIsOpen(event) {
 }
 
 html.onmouseup = (evt) => {
-  const [ boxActiverClicked ] = getValidationsToMouseClick();
+  const [ boxActiverClicked,svgClicked, boxDivClicked, [aClicked, aDidCLicked] ] = getValidationsToMouseClick();
   const haveBoxOpen = getBoxOpen() != -1;
-  if (haveBoxOpen &&  !boxActiverClicked ) {
+  if ((haveBoxOpen && !boxActiverClicked) && (haveBoxOpen && !boxDivClicked)) {
     makeProcessToRemoveBox(getBoxOpen());
-    console.log('ssssssssssssssssssssssssss | '+boxActiverClicked,)
   }
 
   function getValidationsToMouseClick() {
     return [
       evt.path.filter(itemCLicked => itemCLicked.id == 'box-activer').length > 0,
+      evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
+      evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
+      [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0], evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
     ]
   }
 }
