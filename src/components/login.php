@@ -36,6 +36,6 @@
     $_SESSION['logid'] = $data['use_idPk'];
   }
 
-  echo "<script>location.href='../../index.php?p=menu';</script>";
+  echo "<script>location.href='../../index.php?p=home';</script>";
   exit;
 ?>

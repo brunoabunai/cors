@@ -40,7 +40,7 @@ function processWhenIsOpen(event) {
 }
 
 html.onmouseup = (evt) => {
-  const [ boxActiverClicked,svgClicked, boxDivClicked, [aClicked, aDidCLicked] ] = getValidationsToMouseClick();
+  const [boxActiverClicked, svgClicked, boxDivClicked, [aClicked, aDidCLicked]] = getValidationsToMouseClick();
   const haveBoxOpen = getBoxOpen() != -1 || false;
   if ((haveBoxOpen && !boxActiverClicked) && (haveBoxOpen && !boxDivClicked)) {
     makeProcessToRemoveBox(getBoxOpen());
@@ -81,7 +81,7 @@ function createBox(op) {
   addInPage(box);
 }
 function removeBox() {
-  const box=localizeID('box');
+  const box = localizeID('box');
   let endAnimationOfBox = box.animate([
     // keyframes
     { opacity: 1 },
@@ -103,13 +103,13 @@ function conditionBox() {
   return (!globalStateBox[0] && !globalStateBox[1]);
 }
 function getElementCLicked(op) {
- 
-  return ( 
+
+  return (
     [
       document.querySelector('.bt-ops'),
       document.querySelector('.bt-input'),
       document.querySelector('.bt-menu')
-    ][op] 
+    ][op]
   )
 }
 
@@ -160,12 +160,21 @@ function constructorBox(op) {
                 </div>
             `;
       break;
-      case 2:
-      box.name = "box of menu options";
+    case 2:
+      box.name = "Box Menu To Admin";
       box.content =/*html*/
         `
                 <div id='box' class="boxMenu">
-                    oiiii
+                    <a href="./index.php?p=menu">Portal do Admin</a>
+                </div>
+            `;
+      break;
+    case 3:
+      box.name = "Box Menu To Member";
+      box.content =/*html*/
+        `
+                <div id='box' class="boxMenu">
+                    <a href="#">Portal dos Cargos</a>
                 </div>
             `;
       break;

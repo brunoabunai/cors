@@ -69,6 +69,23 @@
   margin-top: 0.5rem;
 }
 
+/*box menu*/
+
+.boxMenu{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  animation: coming-up 500ms;
+}
+
+
+
+/*end box menu -----*/
+
 .boxInput {
   position: absolute;
   top: 30%;

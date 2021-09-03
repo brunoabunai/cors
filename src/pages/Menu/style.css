@@ -74,6 +74,7 @@ body{
 
 
 
+
 .portable-page .main .ops .btn{
     margin-top: 1.1rem;
     background-color: transparent;
@@ -110,7 +111,13 @@ body{
 
 .boxGear{
     top: 5.8rem;
-    right: 3.1rem; 
+    right: 2.8rem; 
+}
+
+.anc-back{
+    position: absolute;
+    top: 4.5rem;
+    left: 2.5rem;
 }
 
 @media (min-width: 1080px) {
