@@ -44,15 +44,33 @@ html.onmouseup = (evt) => {
   const haveBoxOpen = getBoxOpen() != -1 || false;
   if ((haveBoxOpen && !boxActiverClicked) && (haveBoxOpen && !boxDivClicked)) {
     makeProcessToRemoveBox(getBoxOpen());
+    
+    
   }
 
   function getValidationsToMouseClick() {
+    function validationCLassActiver(){
+      let validation=false;
+      evt.path.forEach(itemCLicked=>{
+        if(itemCLicked.classList){
+          const classesOfItem=itemCLicked.classList.value.split(' ');
+          const haveClassActiver=classesOfItem.filter(TheClass=> TheClass=='box-activer');
+          if(haveClassActiver.length>0){
+            validation=true;
+            return
+          }
+        }
+      })
+      return validation;
+    }
     return [
-      evt.path.filter(itemCLicked => itemCLicked.id == 'box-activer').length > 0,
+      validationCLassActiver(),
       evt.path.filter(itemCLicked => itemCLicked.nodeName == 'svg').length > 0,
       evt.path.filter(itemCLicked => itemCLicked.id == 'box').length > 0,
       [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0], evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
     ]
+
+    
   }
 }
 
@@ -61,16 +79,14 @@ function CreateBoxInit(op) {
 }
 
 function makeProcessToCreateBox(op) {
-  const elementClicked = getElementCLicked(op);
-  changeColorOfElementClicked(elementClicked, '#c6c6c6');
+  alert('mudou para #c6c6c6 ')
   createBox(op);
   changeStateBox(op);
   mapAllTagsA();
 }
 
 function makeProcessToRemoveBox(op) {
-  const elementClicked = getElementCLicked(op);
-  changeColorOfElementClicked(elementClicked, 'var(--text-color)');
+  alert('mudou para var(--text-color) ')
   removeBox();
   changeStateBox(op);
   mapAllTagsA();
@@ -101,16 +117,6 @@ function changeStateBox(op) {
 }
 function conditionBox() {
   return (!globalStateBox[0] && !globalStateBox[1]);
-}
-function getElementCLicked(op) {
-
-  return (
-    [
-      document.querySelector('.bt-ops'),
-      document.querySelector('.bt-input'),
-      document.querySelector('.bt-menu')
-    ][op]
-  )
 }
 
 function constructorBox(op) {
