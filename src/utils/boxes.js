@@ -1,4 +1,5 @@
-var globalStateBox = [false, false];
+var globalStateBox = [false, false,false,false];
+const prefix='box_'
 
 const html = document.querySelector('html');
 
@@ -40,28 +41,47 @@ function processWhenIsOpen(event) {
 }
 
 html.onmouseup = (evt) => {
-  const [boxActiverClicked, svgClicked, boxDivClicked, [aClicked, aDidCLicked]] = getValidationsToMouseClick();
+  const [[boxActiverClicked, witchBoxActiver], svgClicked, boxDivClicked, [aClicked, aDidCLicked]] = getValidationsToMouseClick();
   const haveBoxOpen = getBoxOpen() != -1 || false;
   if ((haveBoxOpen && !boxActiverClicked) && (haveBoxOpen && !boxDivClicked)) {
     makeProcessToRemoveBox(getBoxOpen());
-    
+  }
+
+  let boxOp;
+  if (boxActiverClicked) {
+    const classesOfBoxActiver = (witchBoxActiver.classList.value).split(' ');
+    const classFiltered = classesOfBoxActiver.filter((theClass, indexClass) => {
+      const classSpelled = theClass.split('');
+      return (classSpelled[0] + classSpelled[1] + classSpelled[2] + classSpelled[3] == prefix)
+    });
+    boxOp=Number(classFiltered[0].split('')[4]);
+  }
+
+  if (!haveBoxOpen && boxActiverClicked) {
+    makeProcessToCreateBox(boxOp)
+  }
+
+  if (haveBoxOpen && boxActiverClicked) {
+    makeProcessToRemoveBox(boxOp)
     
   }
 
   function getValidationsToMouseClick() {
-    function validationCLassActiver(){
-      let validation=false;
-      evt.path.forEach(itemCLicked=>{
-        if(itemCLicked.classList){
-          const classesOfItem=itemCLicked.classList.value.split(' ');
-          const haveClassActiver=classesOfItem.filter(TheClass=> TheClass=='box-activer');
-          if(haveClassActiver.length>0){
-            validation=true;
+    function validationCLassActiver() {
+      let validation = false;
+      let boxActiver = false;
+      evt.path.forEach(itemCLicked => {
+        if (itemCLicked.classList) {
+          const classesOfItem = itemCLicked.classList.value.split(' ');
+          const haveClassActiver = classesOfItem.filter(TheClass => TheClass == 'box-activer');
+          if (haveClassActiver.length > 0) {
+            validation = true;
+            boxActiver = itemCLicked;
             return
           }
         }
       })
-      return validation;
+      return [validation, boxActiver];
     }
     return [
       validationCLassActiver(),
@@ -70,23 +90,20 @@ html.onmouseup = (evt) => {
       [(evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A'))[0], evt.path.filter(itemCLicked => itemCLicked.nodeName == 'A').length > 0],
     ]
 
-    
+
   }
 }
 
-function CreateBoxInit(op) {
-  return (!someBoxIsOpen()) ? makeProcessToCreateBox(op) : makeProcessToRemoveBox(getBoxOpen())
-}
 
 function makeProcessToCreateBox(op) {
-  alert('mudou para #c6c6c6 ')
+  document.querySelector(`.${prefix+op} > svg > path`).style.fill='#c6c6c6';
   createBox(op);
   changeStateBox(op);
   mapAllTagsA();
 }
 
 function makeProcessToRemoveBox(op) {
-  alert('mudou para var(--text-color) ')
+  document.querySelector(`.${prefix+op} > svg > path`).style.fill='var(--text-color)';
   removeBox();
   changeStateBox(op);
   mapAllTagsA();
