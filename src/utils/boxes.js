@@ -54,7 +54,7 @@ html.onmouseup = (evt) => {
       const classSpelled = theClass.split('');
       return (classSpelled[0] + classSpelled[1] + classSpelled[2] + classSpelled[3] == prefix)
     });
-    boxOp=Number(classFiltered[0].split('')[4]);
+    boxOp=Number(classFiltered[0].replace(prefix,''));
   }
 
   if (!haveBoxOpen && boxActiverClicked) {
