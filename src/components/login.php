@@ -1,5 +1,5 @@
 <?php
-  include_once '/connection.php';
+  include_once './connection.php';
   
   @session_start();
   // Part 1 Validação
