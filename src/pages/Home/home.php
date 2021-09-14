@@ -40,66 +40,66 @@
         <h2>Ultimas Postagens Sobre o Corona Vírus</h2>
       </div>
 
+
       <div class="news">
-        <div class="noticie noticieOne">
-          <img src="./public/img/banner_corona.jpg" alt="">
+        
 
-          <div class="headline">
-            <span>Carlos Calixto</span>
-            <h3>
-              Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
-            </h3>
-            <span>
-              Takimata eos kasd diam dolor dolor magna sanctus...
-            </span>
-          
-            <p class="lastPost">
-              Ultima Postagem
-            </p>
+        <a href="./index.php?p=notice">
+          <div class="noticie noticieOne">
+            <img src="./public/img/banner_corona.jpg" alt="">
+
+            <div class="headline">
+              <span class="head-author">Carlos Calixto</span>
+              <h3 class="head-title">
+                Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
+              </h3>
+              <span class="head-desc">
+                Takimata eos kasd diam dolor dolor magna sanctus...
+              </span>
+            
+              <p class="lastPost">
+                Ultima Postagem
+              </p>
+            </div>
+
           </div>
+        </a>
+    
 
-        </div>
-        <div class="noticie">
-          <div class="headline">
-            <span>Carlos Calixto</span>
-            <h3>
-              Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
-            </h3>
-            <span>
-              Takimata eos kasd diam dolor dolor magna sanctus...
-            </span>
+        <a href="#">
+          <div class="noticie">
+            <div class="headline">
+              <span class="head-author">Carlos Calixto</span>
+              <h3 class="head-title">
+                Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
+              </h3>
+              <span class="head-desc">
+                Takimata eos kasd diam dolor dolor magna sanctus...
+              </span>
+            </div>
+
+            <img src="./public/img/banner_corona.jpg" alt="">
           </div>
+        </a>
 
-          <img src="./public/img/banner_corona.jpg" alt="">
-        </div>
+        <a href="#">
+          <div class="noticie">
+            <div class="headline">
+              <span class="head-author">Carlos Calixto</span>
+              <h3 class="head-title">
+                Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
+              </h3>
+              <span class="head-desc">
+                Takimata eos kasd diam dolor dolor magna sanctus...
+              </span>
+            </div>
 
-        <div class="noticie">
-          <div class="headline">
-            <span>Carlos Calixto</span>
-            <h3>
-              Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
-            </h3>
-            <span>
-              Takimata eos kasd diam dolor dolor magna sanctus...
-            </span>
+            <img src="./public/img/banner_corona.jpg" alt="">
           </div>
+        </a>
 
-          <img src="./public/img/banner_corona.jpg" alt="">
-        </div>
 
-        <div class="noticie">
-          <div class="headline">
-            <span>Carlos Calixto</span>
-            <h3>
-              Ibespa derrete 2% em reação à reforma do IR; Via (VIIA3) afunda 6%
-            </h3>
-            <span>
-              Takimata eos kasd diam dolor dolor magna sanctus...
-            </span>
-          </div>
-
-          <img src="./public/img/banner_corona.jpg" alt="">
-        </div>
+        
         
 
       

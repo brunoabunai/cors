@@ -8,7 +8,7 @@
 .home-page .title{
   margin-top: 7.3rem;
 
-  margin-left: 2rem;
+  margin-left: 1rem;
   
 }
 
@@ -20,7 +20,7 @@
 
 .home-page .news{
   width: 90%;
-  margin-left: 1rem;
+  
 }
 
 .home-page .news .noticie{
@@ -131,16 +131,6 @@
 }
 
 @media (min-width: 1080px) {
-  .home-page .title{
-    margin-top: 7.3rem;
-  
-    margin-left: 5rem;
-    
-  }
-  .home-page .news{
-    width: 50%;
-    margin-left: 4.5rem;
-  }
   .bt-ops{
       position: absolute;
       top: 4rem;
