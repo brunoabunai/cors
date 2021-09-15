@@ -27,7 +27,7 @@
   display: flex;
   margin-top: 2rem;
   border-top:0.001rem solid #999;
-  border-radius: 0.5rem 0 0 0;
+  border-radius: 0.1rem 0 0 0;
   padding: 2rem;
   align-items: flex-start;
   
@@ -156,4 +156,31 @@
       top: 6rem;
       right: 5rem;
   }
+
+  .home-page .news .noticie img{
+    width: 32rem;
+    height: 14rem;
+  }
+  
+.home-page .news .headline .head-author{
+  
+  font-size: 1rem;
+  
+}
+
+.home-page .news .headline .head-title{
+ 
+  font-size: 1.4rem;
+ 
+}
+
+.home-page .news .headline .head-desc{
+  
+  font-size: 1.2rem;
+
+}
+
+.home-page .news{
+  width:60%;
+}
 }
