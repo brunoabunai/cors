@@ -42,8 +42,8 @@ body{
 
 .login-page .landing .subtitle{
     margin-top: 0.3rem;
-    font-size: 1.2rem;
-    font-weight: 300;  
+    font-size: 1.3rem;
+    font-weight: 400;  
 }
 
 .login-page .landing, .main{ 
@@ -95,6 +95,16 @@ body{
     font-size: 0.9rem;
     color: var(--title-animed);
     font-weight: 300;
+}
+
+.toRegisterMember{
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 400;  
+}
+
+.toRegisterMember a{
+    color: var(--primary-green);
 }
 
 @media (min-width: 1080px) {

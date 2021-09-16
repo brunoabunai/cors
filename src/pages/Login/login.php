@@ -19,7 +19,7 @@
 
   <?php
     if (!(isset($_SESSION['logged']) && $_SESSION['logged'])) {
-      echo '
+      echo /*html*/'
         <a class="anc-back" href="./index.php?p=landing">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 16V13L22 13V11L6 11L6 8L2 12L6 16Z" fill="#343434"></path>
@@ -49,11 +49,19 @@
               <input name="log_name" type="text" placeholder="Usuário">
               <input name="log_password" type="password" placeholder="Senha">
               <input type="submit" id="btn" class="btn-begin opacty-button" value="Entrar Na Sua Conta">
+              <span class="toRegisterMember">
+                Não tem uma conta&#63;
+                <a href="./index.php?p=RegisterMember">
+                  Clique aqui.
+                </a>
+              </span>
             </form>
+            
 
           </div>
         </div>
         ';
+        
       } else {
       echo '<script>location.href="./index.php?p=menu"</script>';
     }
