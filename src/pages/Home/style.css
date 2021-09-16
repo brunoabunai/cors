@@ -183,4 +183,12 @@
 .home-page .news{
   width:60%;
 }
+
+.home-page .news .noticie{
+  margin-top: 1rem;
+}
+
+.home-page .news .noticieOne{
+  margin-bottom: 1.5rem;
+}
 }

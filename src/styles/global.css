@@ -28,12 +28,12 @@ html, body {
   font-family: 'Roboto', sans-serif;
   color:var(--text-color);
   background-color: var(--background-white);
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 body{
   height: 100%;
-  width: 100vw;
+  width: 100%;
 }
 
 
