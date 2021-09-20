@@ -15,7 +15,7 @@
         $this->loadTemplate('menu');
       } else {
         array_shift($data);
-        $this->loadTemplate('errorLog', $data[0]);
+        $this->loadTemplate('errorLog', $data);
       }
       
     }

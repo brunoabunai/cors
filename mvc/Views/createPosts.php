@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      <?php include './styles/createPosts.css'; ?>
+      <?php include_once('./styles/createPosts.css'); ?>
     </style>
     <title>Create Posts</title>
   </head>
@@ -38,9 +38,9 @@
         <form name="form_createPosts" action="./createPosts/submit" method="post">
           <input style="display:none;" type="text" class="pos_register" name="use_idFk" placeholder="Veremos..." disabled value="' . $_SESSION["logid"] . '" />
           
-          <input type="text" class="pos_register" name="pos_title" placeholder="Título do post" />
+          <input type="text" class="pos_register" name="pos_title" placeholder="Título do post" value="<?php echo isset($_SESSION['pos_title']) ? $_SESSION['pos_title'] : '' ?>" />
 
-          <textarea placeholder="Escreva Seu Post..." class="pos_register" name="pos_description" cols="50" rows="10"></textarea>
+          <textarea placeholder="Escreva Seu Post..." class="pos_register" name="pos_description" cols="50" rows="10"><?php echo isset($_SESSION['pos_register']) ? $_SESSION['pos_register'] : '' ?></textarea>
 
           <input type="submit" class="btn-register opacty-button" value="Concluir" />
         </form>

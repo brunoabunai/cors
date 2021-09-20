@@ -32,7 +32,7 @@
           $parameters = $url;
         }
       } else {
-        $controller = 'errorController'; //Controller of page
+        $controller = 'landingController'; //Controller of page
         $method = 'index'; //Function active from class of page 'controller'
       }
 

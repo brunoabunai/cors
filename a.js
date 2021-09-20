@@ -1,1 +1,3 @@
-document.getElementsByName
+// document.getElementsByName
+
+// console.log('potat');

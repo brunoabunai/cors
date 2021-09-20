@@ -17,16 +17,24 @@ require_once('connection.php');
     }
 
     private function validarInformations(){
-      if(strlen($this->title) == 0){ //Vê se o campo "Name" está vazio
+      if(strlen($this->title) == 0){ //Vê se o campo "Title" está vazio
         $this->err[] = "Preencha o título.";
+      } else
+      if(strlen($this->title) <= 5){ //Vê se o campo "Title"  tem menos de 6 caracteres
+        $this->err[] = "Title muito pequeno.";
       }
-      if(strlen($this->description) == 0){ //Vê se o campo "Password" está vazio
+
+      if(strlen($this->description) == 0){ //Vê se o campo "Description" está vazio
         $this->err[] = "Preencha a descrição.";
+      } else
+      if(strlen($this->description) <= 100){ //Vê se o campo "Description"  tem menos de 101 caracteres
+        $this->err[] = "Descrição muito pequeno.";
       }
       
       $cmd = $this->conn->query(' SELECT pos_description 
                                   FROM posts 
                                   WHERE pos_description = "'.$this->description.'"
+                                  or pos_title = "'.$this->title.'"
                                 ') or die ($this->conn->error);
       $data = $cmd->fetch_assoc();
                                 
@@ -38,7 +46,7 @@ require_once('connection.php');
         // $this->setUserInformations($this->name, $this->password, $this->avatar);
         return [true, $this->insertRegister()];
       } else {
-        return [false, $this->err];
+        return [false, $this->err, 'previousPage' => 'createPosts'];
       }
     }
 
@@ -59,6 +67,12 @@ require_once('connection.php');
       $this->title = trim($title);
       $this->description = trim($description);
       $this->date = $date;
+
+      /**
+       * Agora com as sessions é possível remover as variaveis de posts
+       */
+      $_SESSION['pos_title'] = $this->title;
+      $_SESSION['pos_register'] = $this->description;
 
       return $this->validarInformations();
     }

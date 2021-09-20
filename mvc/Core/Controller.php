@@ -16,7 +16,7 @@
       $this -> data = $data;
       require_once ('Views/template.php');
     }
-
+    
     // Irá fazer o redirecionamento da page
     public function loadViewInTemplate($nameView, $data = array()) {
       extract($data);

@@ -6,7 +6,10 @@
       $this->loadTemplate('login');
     }
 
-    
+    public function submit() {
+      $l = new login();
+      $l -> login();
+    }
 
   }
 
