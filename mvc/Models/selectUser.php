@@ -194,7 +194,7 @@ require_once ('connection.php');
         </>
       </div>
       ';
-      
+
       echo $output;
     }
 
@@ -211,7 +211,7 @@ require_once ('connection.php');
                                   WHERE use_name = "'.$name.'" ');
       $this->data = $cmd->fetch_assoc();
       
-      return ([$this->data, array()]);
+      return ($this->data);
     }
 
   }
