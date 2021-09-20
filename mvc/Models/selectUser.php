@@ -68,7 +68,7 @@ require_once ('connection.php');
 
       $output = '
       <label>Total de Registros - '.$totalData.'</label>
-      <table class="table table-striped table-bordered">
+      <table class="">
         <tr>
           <th>Creator</th>
           <th>Name</th>
@@ -148,18 +148,18 @@ require_once ('connection.php');
       for($count = 0; $count < count($pageArray); $count++){
         if($pages == $pageArray[$count]){
           $pageLink .= '
-          <li class="page-item active">
-            <a class="page-link" href="#">'.$pageArray[$count].'</a>
+          <li class="">
+            <a class="" href="#">'.$pageArray[$count].'</a>
           </li>
           ';
     
           $previousId = $pageArray[$count] - 1;
           if($previousId > 0){
-            $previewsLink = '<li class="page-item"><a class="page-link" href="javascript:void(0)" data-page_number="'.$previousId.'">Previous</a></li>';
+            $previewsLink = '<li class=""><a class="" href="javascript:void(0)" data-page_number="'.$previousId.'">Previous</a></li>';
           }else{
             $previewsLink = '
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Previous</a>
+            <li class="">
+              <a class="" href="#">Previous</a>
             </li>
             ';
           }
@@ -183,7 +183,7 @@ require_once ('connection.php');
             ';
           }else{
             $pageLink .= '
-            <li class="page-item"><a class="page-link" href="javascript:void(0)" data-page_number="'.$pageArray[$count].'">'.$pageArray[$count].'</a></li>
+            <li class=""><a class="" href="javascript:void(0)" data-page_number="'.$pageArray[$count].'">'.$pageArray[$count].'</a></li>
             ';
           }
         }

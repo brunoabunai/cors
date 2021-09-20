@@ -62,7 +62,7 @@
 </html>
 
 <script defer type="module">
-  $('form').on(
+  $('submit').on(
     'click',
     (e) => {
       e.preventDefault();
