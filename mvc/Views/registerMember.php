@@ -1,5 +1,13 @@
 <?php
-// @session_start();
+//Users
+unset(
+  $_SESSION['reg_name'],
+  $_SESSION['reg_password'],
+  $_SESSION['reg_confirmPassword'],
+  //Post
+  $_SESSION['pos_title'],
+  $_SESSION['pos_register']
+);
 ?>
 
 <!DOCTYPE html>
@@ -10,18 +18,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    <?php include_once('./styles/login.css'); ?>
+    <?php include_once('styles/registerMember.css'); ?>
   </style>
-  <title>Login</title>
+  <title>Member</title>
 </head>
 
 <body>
-  <a class="anc-back" href="./landing">
+  <a class="anc-back" href="./login">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 16V13L22 13V11L6 11L6 8L2 12L6 16Z" fill="#343434"></path>
     </svg>
-  </a>
 
+  </a>
   <div class="login-page">
     <div class="landing">
 
@@ -31,48 +39,27 @@
           <path d="M14 22L11.3333 19.1765H8C6.89543 19.1765 6 18.281 6 17.1765V8C6 6.89543 6.89543 6 8 6H20C21.1046 6 22 6.89543 22 8V17.1765C22 18.281 21.1046 19.1765 20 19.1765H16.6667L14 22ZM15.8046 17.1765L20 17.1765V8L8 8V17.1765H12.1954L14 19.0872L15.8046 17.1765Z" fill="#5438DC"></path>
         </svg>
 
-        Loge-se
+        Cadastrar-se
       </h2>
 
-      <span class="subtitle">
-        Entre em sua conta para acessar suas funcionalidades de admin.
-      </span>
+
 
     </div>
 
     <div class="main">
-      <form name="form_login" action="./login/submit" method="POST">
-        <input name="log_name" type="text" placeholder="Usuário">
-        <input name="log_password" type="password" placeholder="Senha">
-        <input type="submit" id="btn" class="btn-begin opacty-button" value="Entrar Na Sua Conta">
-        <span class="toRegisterMember">
-          Não tem uma conta&#63;
-          <a href="./registerMember">
-            Clique aqui.
-          </a>
-        </span>
+      <form name="form_login" action="./src/components/login.php" method="POST">
+        <label>Digite um Nome de Usuário:</label>
+        <input name="log_name" type="text">
+        <label>Digite uma Senha:</label>
+        <input name="log_password" type="password">
+        <label>Confirme sua senha:</label>
+        <input name="log_password" type="password">
+        <input type="submit" id="btn" class="btn-begin opacty-button" value="Completar Cadastro">
       </form>
+
 
     </div>
   </div>
-
-  <script defer src="../node_modules/jquery/dist/jquery.js"></script>
 </body>
 
 </html>
-
-<script defer type="module">
-  $('form').on(
-    'click',
-    (e) => {
-      e.preventDefault();
-      console.log('potato');
-    });
-
-  // document.querySelector("form").addEventListener(
-  //   "click", 
-  //   (event) => {
-  //     event.preventDefault();
-  //     console.log('potato');
-  // });
-</script>

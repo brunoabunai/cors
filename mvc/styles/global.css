@@ -10,7 +10,7 @@ html {
   --title-strong: #1D263B;
   --title-animed: #8D80AD;
   --background-purple: #5438DC;
-  --background-white: #F7FFF7;
+  --background-white: #fbfbfb83;
   --text-color: #343434;
 }
 
@@ -28,12 +28,14 @@ html, body {
   font-family: 'Roboto', sans-serif;
   color:var(--text-color);
   background-color: var(--background-white);
+  /*overflow-x: hidden;*/
 }
 
 body{
   height: 100%;
-  width: 100vw;
+  width: 100%;
 }
+
 
 button,select,input[type=submit] {
   cursor: pointer;
@@ -60,3 +62,4 @@ a {
       font-size: 87.5%;
   }
 }
+

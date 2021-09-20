@@ -33,7 +33,6 @@
 
     <div class="main">
       <a class="btn-begin opacty-button" href="./login">Começar Agora</a>
-      <a class="anc-admin opacty-button" href="./menu">admin<small>></small></a>
     </div>
 
   </body>

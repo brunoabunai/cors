@@ -33,7 +33,7 @@ left:1rem;
   font-size: 2rem;
   font-weight: 700;
   color: var(--title-strong);
-  margin-bottom: 1.2rem;
+  
 }
 
 .login-page .landing .title .brand{
@@ -42,8 +42,8 @@ left:1rem;
 
 .login-page .landing .subtitle{
   margin-top: 0.3rem;
-  font-size: 1.3rem;
-  font-weight: 400;  
+  font-size: 1.2rem;
+  font-weight: 300;  
 }
 
 .login-page .landing, .main{ 
@@ -60,6 +60,13 @@ left:1rem;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.login-page .main form label{
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500; 
+  color: var(--text-color); 
 }
 
 .login-page .main form input{
@@ -83,12 +90,13 @@ left:1rem;
 
 .login-page .main .btn-begin{
   margin-top: 1.1rem;
-  background-color: var(--background-purple);
+  background-color: var(--secondary-green);
   color: #fff;
   padding: 1.2rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   font-weight: 500;
+  width: 14rem;
 }
 
 .login-page .main .anc-admin{
@@ -100,7 +108,7 @@ left:1rem;
 .toRegisterMember{
   color: var(--text-color);
   font-size: 1rem;
-  font-weight: 400;  
+  font-weight: 300;  
 }
 
 .toRegisterMember a{
