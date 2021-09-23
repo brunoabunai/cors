@@ -195,6 +195,9 @@ function constructorBox(op) {
         `
                 <div id='box' class="boxMenu">
                     <a href="./menu">Portal do Admin</a>
+                    <a href="./preventions">Prevenções</a>
+                    <a href="./symptoms">Sistomas</a>
+                    <a href="./treatments">Contato</a>
                 </div>
             `;
       break;
