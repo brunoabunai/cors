@@ -18,7 +18,7 @@ unset(
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    <?php include_once('styles/home.css'); ?>
+    <?php include_once('styles/treatments.css'); ?>
   </style>
   <title>Home</title>
 </head>
