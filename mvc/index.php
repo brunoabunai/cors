@@ -15,7 +15,7 @@
     
     <!-- <script defer src="../node_modules/jquery/dist/jquery.js"></script> -->
     <script src="./utils/globall.js" defer></script>
-    <script src="./utils/boxxxxex.js" defer></script>
+    <script src="./utils/boxeeexex.js" defer></script>
     <script src="./utils/input.js" defer></script>
   </body>
 </html>
@@ -32,5 +32,7 @@
 
   require_once ('autoload.php');
   $c = new Core();
+
+  
   
 ?>
