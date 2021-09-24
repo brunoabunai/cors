@@ -92,6 +92,23 @@
 }
 
 
+.boxMenu .close {
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  cursor: pointer;
+  cursor: pointer;
+  fill: #999;
+}
+
+.boxMenu div {
+  margin-bottom:0.5rem;
+}
+
+.boxMenu a{
+  margin-bottom: 0.8rem;
+}
+
 
 /*end box menu -----*/
 

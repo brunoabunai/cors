@@ -1,18 +1,18 @@
-var numberOfBoxes=4;
+var numberOfBoxes = 4;
 var globalStateBox = new Array(numberOfBoxes).fill(false);
 
-const prefix='box_'
+const prefix = 'box_'
 
 const html = document.querySelector('html');
 
 function mapAllTagsA() {
   const AllTagsA = document.querySelectorAll('a');
-  
+
   AllTagsA.forEach(tagA => {
     if (tagA.onclick) {
       const eventBeforeOnclick = tagA.onclick;
       tagA.onclick = (event) => {
-        const divOfBoxClicked= (getValidationsToMouseClick(event) )[2];
+        const divOfBoxClicked = (getValidationsToMouseClick(event))[2];
         if (someBoxIsOpen() && haveSomeBoxActiver() && !divOfBoxClicked) {
           processWhenIsOpen(event)
         } else {
@@ -59,7 +59,7 @@ html.onmouseup = (evt) => {
       const classSpelled = theClass.split('');
       return (classSpelled[0] + classSpelled[1] + classSpelled[2] + classSpelled[3] == prefix)
     });
-    boxOp=Number(classFiltered[0].replace(prefix,''));
+    boxOp = Number(classFiltered[0].replace(prefix, ''));
   }
 
   if (!haveBoxOpen && boxActiverClicked) {
@@ -102,14 +102,14 @@ function getValidationsToMouseClick(evt) {
 
 
 function makeProcessToCreateBox(op) {
-  document.querySelector(`.${prefix+op} > svg > path`).style.fill='#c6c6c6';
+  document.querySelector(`.${prefix + op} > svg > path`).style.fill = '#c6c6c6';
   createBox(op);
   changeStateBox(op);
   mapAllTagsA();
 }
 
 function makeProcessToRemoveBox() {
-  document.querySelector(`.${prefix+getBoxOpen()} > svg > path`).style.fill='var(--text-color)';
+  document.querySelector(`.${prefix + getBoxOpen()} > svg > path`).style.fill = 'var(--text-color)';
   removeBox();
   changeStateBox(getBoxOpen());
   mapAllTagsA();
@@ -192,8 +192,12 @@ function constructorBox(op) {
     case 2:
       box.name = "Box Menu To Admin";
       box.content =/*html*/
-        `
+        ` 
                 <div id='box' class="boxMenu">
+                  <div>
+                    <svg class="close" onclick="makeProcessToRemoveBox()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+                  </div>
+                  
                     <a href="./menu">Portal do Admin</a>
                     <a href="./infosars">Covid Informações</a>
                 </div>
@@ -203,12 +207,12 @@ function constructorBox(op) {
       box.name = "Box Menu To Member";
       box.content =/*html*/
         `
-                <div id='box' class="boxMenu">
+                <div id='box' class="boxMenuMember">
                     <a href="#">Portal dos Cargos</a>
                 </div>
             `;
       break;
-      case 4:
+    case 4:
       box.name = "Box To Test";
       box.content =/*html*/
         `
