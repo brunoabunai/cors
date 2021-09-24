@@ -130,6 +130,10 @@
   color: #999;
 }
 
+.optionsHomeDesktop{
+  display: none;
+}
+
 @media (min-width: 1080px) {
   .home-page .title{
     margin-top: 7.3rem;
@@ -191,4 +195,23 @@
 .home-page .news .noticieOne{
   margin-bottom: 1.5rem;
 }
+
+.optionsHomeMobile{
+  display: none;
+}
+
+.optionsHomeDesktop{
+  display: block;
+  top: 4.3rem;
+}
+
+.optionsHomeDesktop a{
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.optionsHomeDesktop .opitonActive{
+  font-weight: 700;
+}
+
 }
