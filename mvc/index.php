@@ -1,3 +1,15 @@
+<?php
+
+  clearstatcache();
+  
+  if(!isset($_SESSION)){
+    session_start();
+  }
+
+  // session_unset();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -12,27 +24,16 @@
 
   </head>
   <body>
-    
+
     <!-- <script defer src="../node_modules/jquery/dist/jquery.js"></script> -->
     <script src="./utils/globall.js" defer></script>
     <script src="./utils/box.js" defer></script>
     <script src="./utils/input.js" defer></script>
+
   </body>
 </html>
 
 <?php
-
-  clearstatcache();
-  
-  if(!isset($_SESSION)){
-    // session_start();
-  }
-  
-  // session_unset();
-
   require_once ('autoload.php');
   $c = new Core();
-
-  
-  
 ?>

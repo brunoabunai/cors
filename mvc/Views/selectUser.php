@@ -49,39 +49,42 @@
 
     </div>
   </div>
-  <script defer src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script defer src="../node_modules/jquery/dist/jquery.js"></script>
 </body>
 
 </html>
 
 <script defer type="module">
-  function loadDatas(page, query = '') {
-    $.ajax({
-      type: "POST",
-      url: './search', //config url execute
-      data: {
-        actualPage: page,
-        action: query
-      },
-      // dataType: "json",
-      // beforeSend: function() {
+  $(document).ready(function (){
+    loadDatas(1);
 
-      // },
-      success: function(html) {
-        $('.users').html(html);
-        console.log('success');
-        console.log(html);
-      },
-      error: function(html) {
-        console.log('error');
-        console.log(html);
-      }
+    function loadDatas(page, query = '') {    
+      $.ajax({
+        type: "POST",
+        url: 'edit/search/', //config url execute (edit/search/)
+        data: {
+          actualPage: page,
+          action: query
+        },
+        // dataType: "json",
+        // beforeSend: function() {
+  
+        // },
+        success: function(html) {
+          $('.users').html(html);
+          console.log('success');
+        },
+        error: function(html) {
+          console.log('error');
+        }
+      });
+    
+    }
+  
+    $('#searchInput').keyup(function() {
+      let query = $('#searchInput').val();
+      loadDatas(1, query);
     });
 
-  }
-
-  $('#searchInput').keyup(function() {
-    let query = $('#searchInput').val();
-    loadDatas(1, query);
   });
 </script>

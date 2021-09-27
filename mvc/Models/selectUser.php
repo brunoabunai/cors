@@ -1,4 +1,4 @@
-<?php
+a<?php
 require_once ('connection.php');
 
   Class selectUser {
@@ -67,12 +67,15 @@ require_once ('connection.php');
       $row = $limitQueryPages->fetch_assoc();
 
       $output = '
-      <!-- <label>Total de Registros - '.$totalData.'</label> -->
+      <label>Total de Registros - '.$totalData.'</label>
       <table class="search-users">
         <tr class="head-users">
+          <th class="id">Type</th>
+
           <th>Avatar</th>
           <th>Nome de usuário</th>
           <th class="id">ID</th>
+
           <th class="options">Opções</th>
         </tr>
       ';
@@ -81,21 +84,26 @@ require_once ('connection.php');
         foreach ($limitQueryPages as $row) {
           $output .= '
           <tr class="column-user">
+            <td class="id">'.$this->getTypePerId($row["typ_IdFk"]).'</td>
+
             <td><img src="'.$row["use_avatar"].'"/></td>
             <td>'.$row["use_name"].'</td>
             <td class="id">'.$row["typ_IdFk"].'</td>
+
             <td class="options-user options">
               <button class="btn-delete-user">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 22H7C5.89543 22 5 21.1046 5 20V7H3V5H7V4C7 2.89543 7.89543 2 9 2H15C16.1046 2 17 2.89543 17 4V5H21V7H19V20C19 21.1046 18.1046 22 17 22ZM7 7V20H17V7H7ZM9 4V5H15V4H9Z" fill="var(--danger)"></path>
-              </svg>
-              <button> 
-              <button class="btn-edit-user">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.41999 20.579C4.13948 20.5785 3.87206 20.4603 3.68299 20.253C3.49044 20.0475 3.39476 19.7695 3.41999 19.489L3.66499 16.795L14.983 5.48103L18.52 9.01703L7.20499 20.33L4.51099 20.575C4.47999 20.578 4.44899 20.579 4.41999 20.579ZM19.226 8.31003L15.69 4.77403L17.811 2.65303C17.9986 2.46525 18.2531 2.35974 18.5185 2.35974C18.7839 2.35974 19.0384 2.46525 19.226 2.65303L21.347 4.77403C21.5348 4.9616 21.6403 5.21612 21.6403 5.48153C21.6403 5.74694 21.5348 6.00146 21.347 6.18903L19.227 8.30903L19.226 8.31003Z" fill="var(--alert)"></path>
+                  <path d="M17 22H7C5.89543 22 5 21.1046 5 20V7H3V5H7V4C7 2.89543 7.89543 2 9 2H15C16.1046 2 17 2.89543 17 4V5H21V7H19V20C19 21.1046 18.1046 22 17 22ZM7 7V20H17V7H7ZM9 4V5H15V4H9Z" fill="var(--danger)"></path>
                 </svg>
-              
-              <button> 
+              </button>
+
+              <button class="btn-edit-user">
+                <a href="./edit/editUser/'.$row["use_name"].'">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.41999 20.579C4.13948 20.5785 3.87206 20.4603 3.68299 20.253C3.49044 20.0475 3.39476 19.7695 3.41999 19.489L3.66499 16.795L14.983 5.48103L18.52 9.01703L7.20499 20.33L4.51099 20.575C4.47999 20.578 4.44899 20.579 4.41999 20.579ZM19.226 8.31003L15.69 4.77403L17.811 2.65303C17.9986 2.46525 18.2531 2.35974 18.5185 2.35974C18.7839 2.35974 19.0384 2.46525 19.226 2.65303L21.347 4.77403C21.5348 4.9616 21.6403 5.21612 21.6403 5.48153C21.6403 5.74694 21.5348 6.00146 21.347 6.18903L19.227 8.30903L19.226 8.31003Z" fill="var(--alert)"></path>
+                  </svg>
+                </a>
+              </button> 
             </td>
           </tr>
           ';
@@ -226,6 +234,19 @@ require_once ('connection.php');
       $this->data = $cmd->fetch_assoc();
       
       return ($this->data);
+    }
+
+    /**
+     * ------------------------------------------------------------
+     * Select user from view per id
+     * ------------------------------------------------------------
+     */
+    private function getTypePerId($id) {
+      $cmd = $this->conn->query(' SELECT typ_name 
+                                  FROM types
+                                  WHERE typ_idPk = "'.$id.'" ');
+      $ret = $cmd->fetch_assoc(); //retorno
+      return ($ret['typ_name']);
     }
 
   }
